@@ -1,0 +1,134 @@
+{
+  "ver": "1.0.27",
+  "importer": "image",
+  "imported": true,
+  "uuid": "4b91dafe-cf30-4e25-aad0-a1aac9149b52",
+  "files": [
+    ".json",
+    ".png"
+  ],
+  "subMetas": {
+    "6c48a": {
+      "importer": "texture",
+      "uuid": "4b91dafe-cf30-4e25-aad0-a1aac9149b52@6c48a",
+      "displayName": "SSD logo_日",
+      "id": "6c48a",
+      "name": "texture",
+      "userData": {
+        "wrapModeS": "clamp-to-edge",
+        "wrapModeT": "clamp-to-edge",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "none",
+        "anisotropy": 0,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "4b91dafe-cf30-4e25-aad0-a1aac9149b52",
+        "visible": false
+      },
+      "ver": "1.0.22",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "f9941": {
+      "importer": "sprite-frame",
+      "uuid": "4b91dafe-cf30-4e25-aad0-a1aac9149b52@f9941",
+      "displayName": "SSD logo_日",
+      "id": "f9941",
+      "name": "spriteFrame",
+      "userData": {
+        "trimThreshold": 1,
+        "rotated": false,
+        "offsetX": -1,
+        "offsetY": -3.5,
+        "trimX": 16,
+        "trimY": 11,
+        "width": 226,
+        "height": 101,
+        "rawWidth": 260,
+        "rawHeight": 116,
+        "borderTop": 0,
+        "borderBottom": 0,
+        "borderLeft": 0,
+        "borderRight": 0,
+        "packable": true,
+        "pixelsToUnit": 100,
+        "pivotX": 0.5,
+        "pivotY": 0.5,
+        "meshType": 0,
+        "vertices": {
+          "rawPosition": [
+            -113,
+            -50.5,
+            0,
+            113,
+            -50.5,
+            0,
+            -113,
+            50.5,
+            0,
+            113,
+            50.5,
+            0
+          ],
+          "indexes": [
+            0,
+            1,
+            2,
+            2,
+            1,
+            3
+          ],
+          "uv": [
+            16,
+            105,
+            242,
+            105,
+            16,
+            4,
+            242,
+            4
+          ],
+          "nuv": [
+            0.06153846153846154,
+            0.034482758620689655,
+            0.9307692307692308,
+            0.034482758620689655,
+            0.06153846153846154,
+            0.9051724137931034,
+            0.9307692307692308,
+            0.9051724137931034
+          ],
+          "minPos": [
+            -113,
+            -50.5,
+            0
+          ],
+          "maxPos": [
+            113,
+            50.5,
+            0
+          ]
+        },
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "4b91dafe-cf30-4e25-aad0-a1aac9149b52@6c48a",
+        "atlasUuid": "",
+        "trimType": "auto"
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "type": "sprite-frame",
+    "hasAlpha": true,
+    "fixAlphaTransparencyArtifacts": false,
+    "redirect": "4b91dafe-cf30-4e25-aad0-a1aac9149b52@6c48a"
+  }
+}

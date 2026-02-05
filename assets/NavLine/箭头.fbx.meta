@@ -1,0 +1,188 @@
+{
+  "ver": "2.3.13",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "12ac193f-ae11-4521-820c-fcfd0afa0d52",
+  "files": [],
+  "subMetas": {
+    "9af1d": {
+      "importer": "gltf-mesh",
+      "uuid": "12ac193f-ae11-4521-820c-fcfd0afa0d52@9af1d",
+      "displayName": "",
+      "id": "9af1d",
+      "name": "jiantou.mesh",
+      "userData": {
+        "gltfIndex": 0,
+        "triangleCount": 504
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "89ce6": {
+      "importer": "gltf-material",
+      "uuid": "12ac193f-ae11-4521-820c-fcfd0afa0d52@89ce6",
+      "displayName": "",
+      "id": "89ce6",
+      "name": "jiantou1.material",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "935cf": {
+      "importer": "gltf-scene",
+      "uuid": "12ac193f-ae11-4521-820c-fcfd0afa0d52@935cf",
+      "displayName": "",
+      "id": "935cf",
+      "name": "箭头.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "fbx": {
+      "smartMaterialEnabled": true
+    },
+    "lods": {
+      "enable": false,
+      "hasBuiltinLOD": false,
+      "options": [
+        {
+          "screenRatio": 0.25,
+          "faceCount": 1
+        },
+        {
+          "screenRatio": 0.125,
+          "faceCount": 0.25
+        },
+        {
+          "screenRatio": 0.01,
+          "faceCount": 0.1
+        }
+      ]
+    },
+    "assetFinder": {
+      "meshes": [
+        "12ac193f-ae11-4521-820c-fcfd0afa0d52@9af1d"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [
+        "12ac193f-ae11-4521-820c-fcfd0afa0d52@89ce6"
+      ],
+      "scenes": [
+        "12ac193f-ae11-4521-820c-fcfd0afa0d52@935cf"
+      ]
+    },
+    "materials": {
+      "12ac193f-ae11-4521-820c-fcfd0afa0d52@89ce6": {
+        "__type__": "cc.Material",
+        "_name": "",
+        "_objFlags": 0,
+        "__editorExtras__": {},
+        "_native": "",
+        "_effectAsset": {
+          "__uuid__": "f648964e-8d32-41fc-9ac9-7a1e714dd17b",
+          "__expectedType__": "cc.EffectAsset"
+        },
+        "_techIdx": 0,
+        "_defines": [
+          {
+            "USE_INSTANCING": true,
+            "DCC_APP_NAME": 5
+          },
+          {},
+          {},
+          {}
+        ],
+        "_states": [
+          {
+            "rasterizerState": {},
+            "depthStencilState": {},
+            "blendState": {
+              "targets": [
+                {}
+              ]
+            }
+          },
+          {
+            "rasterizerState": {},
+            "depthStencilState": {},
+            "blendState": {
+              "targets": [
+                {}
+              ]
+            }
+          },
+          {
+            "rasterizerState": {},
+            "depthStencilState": {},
+            "blendState": {
+              "targets": [
+                {}
+              ]
+            }
+          },
+          {
+            "rasterizerState": {},
+            "depthStencilState": {},
+            "blendState": {
+              "targets": [
+                {}
+              ]
+            }
+          }
+        ],
+        "_props": [
+          {
+            "mainColor": {
+              "__type__": "cc.Color",
+              "r": 0,
+              "g": 255,
+              "b": 255,
+              "a": 255
+            },
+            "albedoScale": 2.948800130915643
+          },
+          {},
+          {},
+          {}
+        ]
+      }
+    },
+    "meshOptimize": {
+      "enable": false,
+      "vertexCache": false,
+      "vertexFetch": false,
+      "overdraw": true
+    },
+    "meshSimplify": {
+      "enable": false,
+      "targetRatio": 1
+    },
+    "meshCompress": {
+      "enable": false,
+      "encode": false,
+      "compress": false,
+      "quantize": false
+    }
+  }
+}

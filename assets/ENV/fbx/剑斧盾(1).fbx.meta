@@ -1,0 +1,175 @@
+{
+  "ver": "2.3.13",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "d81acee9-cbf5-4a99-8877-d432027f9bcf",
+  "files": [
+    "__original-animation-0.cconb"
+  ],
+  "subMetas": {
+    "61090": {
+      "importer": "gltf-mesh",
+      "uuid": "d81acee9-cbf5-4a99-8877-d432027f9bcf@61090",
+      "displayName": "",
+      "id": "61090",
+      "name": "fuzi.mesh",
+      "userData": {
+        "gltfIndex": 0,
+        "triangleCount": 464
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "4f6e6": {
+      "importer": "gltf-mesh",
+      "uuid": "d81acee9-cbf5-4a99-8877-d432027f9bcf@4f6e6",
+      "displayName": "",
+      "id": "4f6e6",
+      "name": "jian.mesh",
+      "userData": {
+        "gltfIndex": 1,
+        "triangleCount": 152
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "c8a90": {
+      "importer": "gltf-mesh",
+      "uuid": "d81acee9-cbf5-4a99-8877-d432027f9bcf@c8a90",
+      "displayName": "",
+      "id": "c8a90",
+      "name": "dun.mesh",
+      "userData": {
+        "gltfIndex": 2,
+        "triangleCount": 276
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "73b7f": {
+      "importer": "gltf-animation",
+      "uuid": "d81acee9-cbf5-4a99-8877-d432027f9bcf@73b7f",
+      "displayName": "",
+      "id": "73b7f",
+      "name": "Take 001.animation",
+      "userData": {
+        "gltfIndex": 0,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 3.3333332538604736
+        },
+        "events": []
+      },
+      "ver": "1.0.17",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
+    "1d6cd": {
+      "importer": "gltf-material",
+      "uuid": "d81acee9-cbf5-4a99-8877-d432027f9bcf@1d6cd",
+      "displayName": "",
+      "id": "1d6cd",
+      "name": "Material #119.material",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "c387f": {
+      "importer": "gltf-scene",
+      "uuid": "d81acee9-cbf5-4a99-8877-d432027f9bcf@c387f",
+      "displayName": "",
+      "id": "c387f",
+      "name": "剑斧盾(1).prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "fbx": {
+      "smartMaterialEnabled": true
+    },
+    "animationImportSettings": [
+      {
+        "name": "Take 001",
+        "duration": 3.3333332538604736,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "Take 001",
+            "from": 0,
+            "to": 3.3333332538604736,
+            "wrapMode": 2,
+            "previousId": "73b7f"
+          }
+        ]
+      }
+    ],
+    "lods": {
+      "enable": false,
+      "hasBuiltinLOD": false,
+      "options": [
+        {
+          "screenRatio": 0.25,
+          "faceCount": 1
+        },
+        {
+          "screenRatio": 0.125,
+          "faceCount": 0.25
+        },
+        {
+          "screenRatio": 0.01,
+          "faceCount": 0.1
+        }
+      ]
+    },
+    "assetFinder": {
+      "meshes": [
+        "d81acee9-cbf5-4a99-8877-d432027f9bcf@61090",
+        "d81acee9-cbf5-4a99-8877-d432027f9bcf@4f6e6",
+        "d81acee9-cbf5-4a99-8877-d432027f9bcf@c8a90"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [
+        "d81acee9-cbf5-4a99-8877-d432027f9bcf@1d6cd"
+      ],
+      "scenes": [
+        "d81acee9-cbf5-4a99-8877-d432027f9bcf@c387f"
+      ]
+    }
+  }
+}

@@ -1,0 +1,96 @@
+{
+  "ver": "2.3.13",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "d9f9b345-6e96-493a-8a1a-45738e5b38ac",
+  "files": [],
+  "subMetas": {
+    "0009c": {
+      "importer": "gltf-mesh",
+      "uuid": "d9f9b345-6e96-493a-8a1a-45738e5b38ac@0009c",
+      "displayName": "",
+      "id": "0009c",
+      "name": "polySurface416.mesh",
+      "userData": {
+        "gltfIndex": 0,
+        "triangleCount": 182
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "55eb9": {
+      "importer": "gltf-material",
+      "uuid": "d9f9b345-6e96-493a-8a1a-45738e5b38ac@55eb9",
+      "displayName": "",
+      "id": "55eb9",
+      "name": "Q6.material",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "4ac22": {
+      "importer": "gltf-scene",
+      "uuid": "d9f9b345-6e96-493a-8a1a-45738e5b38ac@4ac22",
+      "displayName": "",
+      "id": "4ac22",
+      "name": "破损围墙2.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "fbx": {
+      "smartMaterialEnabled": true
+    },
+    "lods": {
+      "enable": false,
+      "hasBuiltinLOD": false,
+      "options": [
+        {
+          "screenRatio": 0.25,
+          "faceCount": 1
+        },
+        {
+          "screenRatio": 0.125,
+          "faceCount": 0.25
+        },
+        {
+          "screenRatio": 0.01,
+          "faceCount": 0.1
+        }
+      ]
+    },
+    "assetFinder": {
+      "meshes": [
+        "d9f9b345-6e96-493a-8a1a-45738e5b38ac@0009c"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [
+        "d9f9b345-6e96-493a-8a1a-45738e5b38ac@55eb9"
+      ],
+      "scenes": [
+        "d9f9b345-6e96-493a-8a1a-45738e5b38ac@4ac22"
+      ]
+    }
+  }
+}

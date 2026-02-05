@@ -1,0 +1,96 @@
+{
+  "ver": "2.3.13",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "abe85ab5-7801-4a6c-a9c4-f40c85b4ade0",
+  "files": [],
+  "subMetas": {
+    "955fc": {
+      "importer": "gltf-mesh",
+      "uuid": "abe85ab5-7801-4a6c-a9c4-f40c85b4ade0@955fc",
+      "displayName": "",
+      "id": "955fc",
+      "name": "盾牌.mesh",
+      "userData": {
+        "gltfIndex": 0,
+        "triangleCount": 1130
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "e602e": {
+      "importer": "gltf-material",
+      "uuid": "abe85ab5-7801-4a6c-a9c4-f40c85b4ade0@e602e",
+      "displayName": "",
+      "id": "e602e",
+      "name": "盾牌_shield_riot.material",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "10ba9": {
+      "importer": "gltf-scene",
+      "uuid": "abe85ab5-7801-4a6c-a9c4-f40c85b4ade0@10ba9",
+      "displayName": "",
+      "id": "10ba9",
+      "name": "盾牌.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "fbx": {
+      "smartMaterialEnabled": true
+    },
+    "lods": {
+      "enable": false,
+      "hasBuiltinLOD": false,
+      "options": [
+        {
+          "screenRatio": 0.25,
+          "faceCount": 1
+        },
+        {
+          "screenRatio": 0.125,
+          "faceCount": 0.25
+        },
+        {
+          "screenRatio": 0.01,
+          "faceCount": 0.1
+        }
+      ]
+    },
+    "assetFinder": {
+      "meshes": [
+        "abe85ab5-7801-4a6c-a9c4-f40c85b4ade0@955fc"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [
+        "abe85ab5-7801-4a6c-a9c4-f40c85b4ade0@e602e"
+      ],
+      "scenes": [
+        "abe85ab5-7801-4a6c-a9c4-f40c85b4ade0@10ba9"
+      ]
+    }
+  }
+}

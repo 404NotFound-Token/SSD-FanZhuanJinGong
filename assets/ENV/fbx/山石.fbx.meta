@@ -1,0 +1,96 @@
+{
+  "ver": "2.3.13",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "0ef7c5a7-f7ed-4726-a305-194b2400f42f",
+  "files": [],
+  "subMetas": {
+    "f301e": {
+      "importer": "gltf-mesh",
+      "uuid": "0ef7c5a7-f7ed-4726-a305-194b2400f42f@f301e",
+      "displayName": "",
+      "id": "f301e",
+      "name": "fbx_city_kt_shanshi_01.mesh",
+      "userData": {
+        "gltfIndex": 0,
+        "triangleCount": 255
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "2deab": {
+      "importer": "gltf-material",
+      "uuid": "0ef7c5a7-f7ed-4726-a305-194b2400f42f@2deab",
+      "displayName": "",
+      "id": "2deab",
+      "name": "Default_Material.material",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "2c4ae": {
+      "importer": "gltf-scene",
+      "uuid": "0ef7c5a7-f7ed-4726-a305-194b2400f42f@2c4ae",
+      "displayName": "",
+      "id": "2c4ae",
+      "name": "山石.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "fbx": {
+      "smartMaterialEnabled": true
+    },
+    "lods": {
+      "enable": false,
+      "hasBuiltinLOD": false,
+      "options": [
+        {
+          "screenRatio": 0.25,
+          "faceCount": 1
+        },
+        {
+          "screenRatio": 0.125,
+          "faceCount": 0.25
+        },
+        {
+          "screenRatio": 0.01,
+          "faceCount": 0.1
+        }
+      ]
+    },
+    "assetFinder": {
+      "meshes": [
+        "0ef7c5a7-f7ed-4726-a305-194b2400f42f@f301e"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [
+        "0ef7c5a7-f7ed-4726-a305-194b2400f42f@2deab"
+      ],
+      "scenes": [
+        "0ef7c5a7-f7ed-4726-a305-194b2400f42f@2c4ae"
+      ]
+    }
+  }
+}

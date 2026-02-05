@@ -1,0 +1,96 @@
+{
+  "ver": "2.3.13",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "52e7631a-1ef1-46af-8fa9-986d70cdb0a1",
+  "files": [],
+  "subMetas": {
+    "8f3bc": {
+      "importer": "gltf-mesh",
+      "uuid": "52e7631a-1ef1-46af-8fa9-986d70cdb0a1@8f3bc",
+      "displayName": "",
+      "id": "8f3bc",
+      "name": "Group14701.mesh",
+      "userData": {
+        "gltfIndex": 0,
+        "triangleCount": 202
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "14a07": {
+      "importer": "gltf-material",
+      "uuid": "52e7631a-1ef1-46af-8fa9-986d70cdb0a1@14a07",
+      "displayName": "",
+      "id": "14a07",
+      "name": "Recovered_Tool_a_default.material",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "337b7": {
+      "importer": "gltf-scene",
+      "uuid": "52e7631a-1ef1-46af-8fa9-986d70cdb0a1@337b7",
+      "displayName": "",
+      "id": "337b7",
+      "name": "沙袋.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "fbx": {
+      "smartMaterialEnabled": true
+    },
+    "lods": {
+      "enable": false,
+      "hasBuiltinLOD": false,
+      "options": [
+        {
+          "screenRatio": 0.25,
+          "faceCount": 1
+        },
+        {
+          "screenRatio": 0.125,
+          "faceCount": 0.25
+        },
+        {
+          "screenRatio": 0.01,
+          "faceCount": 0.1
+        }
+      ]
+    },
+    "assetFinder": {
+      "meshes": [
+        "52e7631a-1ef1-46af-8fa9-986d70cdb0a1@8f3bc"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [
+        "52e7631a-1ef1-46af-8fa9-986d70cdb0a1@14a07"
+      ],
+      "scenes": [
+        "52e7631a-1ef1-46af-8fa9-986d70cdb0a1@337b7"
+      ]
+    }
+  }
+}

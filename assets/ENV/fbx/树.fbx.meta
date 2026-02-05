@@ -1,0 +1,106 @@
+{
+  "ver": "2.3.13",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "c312465c-1771-4d99-94b7-5434a273addf",
+  "files": [],
+  "subMetas": {
+    "b9421": {
+      "importer": "gltf-mesh",
+      "uuid": "c312465c-1771-4d99-94b7-5434a273addf@b9421",
+      "displayName": "",
+      "id": "b9421",
+      "name": "fbx_shu.mesh",
+      "userData": {
+        "gltfIndex": 0,
+        "triangleCount": 958
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "2deab": {
+      "importer": "gltf-material",
+      "uuid": "c312465c-1771-4d99-94b7-5434a273addf@2deab",
+      "displayName": "",
+      "id": "2deab",
+      "name": "Default_Material.material",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "fad73": {
+      "importer": "gltf-scene",
+      "uuid": "c312465c-1771-4d99-94b7-5434a273addf@fad73",
+      "displayName": "",
+      "id": "fad73",
+      "name": "树.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "fbx": {
+      "smartMaterialEnabled": true
+    },
+    "lods": {
+      "enable": false,
+      "hasBuiltinLOD": false,
+      "options": [
+        {
+          "screenRatio": 0.25,
+          "faceCount": 1
+        },
+        {
+          "screenRatio": 0.125,
+          "faceCount": 0.25
+        },
+        {
+          "screenRatio": 0.01,
+          "faceCount": 0.1
+        }
+      ]
+    },
+    "assetFinder": {
+      "meshes": [
+        "c312465c-1771-4d99-94b7-5434a273addf@b9421"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [
+        "c312465c-1771-4d99-94b7-5434a273addf@2deab"
+      ],
+      "scenes": [
+        "c312465c-1771-4d99-94b7-5434a273addf@fad73"
+      ]
+    },
+    "meshOptimize": {
+      "enable": false,
+      "vertexCache": true,
+      "vertexFetch": true,
+      "overdraw": true
+    },
+    "meshSimplify": {
+      "enable": false,
+      "targetRatio": 1
+    }
+  }
+}

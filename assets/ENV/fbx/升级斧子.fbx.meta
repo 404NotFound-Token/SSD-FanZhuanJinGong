@@ -1,0 +1,146 @@
+{
+  "ver": "2.3.13",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "7cfa4ea2-df97-4909-b395-fa5cd59fad8b",
+  "files": [],
+  "subMetas": {
+    "fbe75": {
+      "importer": "gltf-mesh",
+      "uuid": "7cfa4ea2-df97-4909-b395-fa5cd59fad8b@fbe75",
+      "displayName": "",
+      "id": "fbe75",
+      "name": "FuZi.mesh",
+      "userData": {
+        "gltfIndex": 0,
+        "triangleCount": 124
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "d5e81": {
+      "importer": "gltf-embeded-image",
+      "uuid": "7cfa4ea2-df97-4909-b395-fa5cd59fad8b@d5e81",
+      "displayName": "",
+      "id": "d5e81",
+      "name": "file9.image",
+      "userData": {
+        "gltfIndex": 0,
+        "fixAlphaTransparencyArtifacts": true,
+        "hasAlpha": true,
+        "type": "texture"
+      },
+      "ver": "1.0.3",
+      "imported": true,
+      "files": [
+        ".json",
+        ".png"
+      ],
+      "subMetas": {}
+    },
+    "6b754": {
+      "importer": "texture",
+      "uuid": "7cfa4ea2-df97-4909-b395-fa5cd59fad8b@6b754",
+      "displayName": "",
+      "id": "6b754",
+      "name": "file9.texture",
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "none",
+        "anisotropy": 0,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "7cfa4ea2-df97-4909-b395-fa5cd59fad8b@d5e81"
+      },
+      "ver": "1.0.22",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "1d8fe": {
+      "importer": "gltf-material",
+      "uuid": "7cfa4ea2-df97-4909-b395-fa5cd59fad8b@1d8fe",
+      "displayName": "",
+      "id": "1d8fe",
+      "name": "lambert10.material",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "63f42": {
+      "importer": "gltf-scene",
+      "uuid": "7cfa4ea2-df97-4909-b395-fa5cd59fad8b@63f42",
+      "displayName": "",
+      "id": "63f42",
+      "name": "升级斧子.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [
+      {
+        "name": "file9",
+        "uri": "7cfa4ea2-df97-4909-b395-fa5cd59fad8b@d5e81"
+      }
+    ],
+    "fbx": {
+      "smartMaterialEnabled": true
+    },
+    "lods": {
+      "enable": false,
+      "hasBuiltinLOD": false,
+      "options": [
+        {
+          "screenRatio": 0.25,
+          "faceCount": 1
+        },
+        {
+          "screenRatio": 0.125,
+          "faceCount": 0.25
+        },
+        {
+          "screenRatio": 0.01,
+          "faceCount": 0.1
+        }
+      ]
+    },
+    "assetFinder": {
+      "meshes": [
+        "7cfa4ea2-df97-4909-b395-fa5cd59fad8b@fbe75"
+      ],
+      "skeletons": [],
+      "textures": [
+        "7cfa4ea2-df97-4909-b395-fa5cd59fad8b@6b754"
+      ],
+      "materials": [
+        "7cfa4ea2-df97-4909-b395-fa5cd59fad8b@1d8fe"
+      ],
+      "scenes": [
+        "7cfa4ea2-df97-4909-b395-fa5cd59fad8b@63f42"
+      ]
+    }
+  }
+}

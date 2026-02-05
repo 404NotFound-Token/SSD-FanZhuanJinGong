@@ -1,0 +1,345 @@
+{
+  "ver": "2.3.13",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "81366fb6-0a68-4eaa-8929-88bc10e3f69d",
+  "files": [
+    "__original-animation-0.cconb"
+  ],
+  "subMetas": {
+    "84222": {
+      "importer": "gltf-mesh",
+      "uuid": "81366fb6-0a68-4eaa-8929-88bc10e3f69d@84222",
+      "displayName": "",
+      "id": "84222",
+      "name": "盾.mesh",
+      "userData": {
+        "gltfIndex": 4,
+        "triangleCount": 276
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "14f89": {
+      "importer": "gltf-mesh",
+      "uuid": "81366fb6-0a68-4eaa-8929-88bc10e3f69d@14f89",
+      "displayName": "",
+      "id": "14f89",
+      "name": "兵营.mesh",
+      "userData": {
+        "gltfIndex": 0,
+        "triangleCount": 904
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "ce2eb": {
+      "importer": "gltf-mesh",
+      "uuid": "81366fb6-0a68-4eaa-8929-88bc10e3f69d@ce2eb",
+      "displayName": "",
+      "id": "ce2eb",
+      "name": "一次升级.mesh",
+      "userData": {
+        "gltfIndex": 1,
+        "triangleCount": 1858
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "b2edc": {
+      "importer": "gltf-mesh",
+      "uuid": "81366fb6-0a68-4eaa-8929-88bc10e3f69d@b2edc",
+      "displayName": "",
+      "id": "b2edc",
+      "name": "剑.mesh",
+      "userData": {
+        "gltfIndex": 2,
+        "triangleCount": 76
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "e7942": {
+      "importer": "gltf-mesh",
+      "uuid": "81366fb6-0a68-4eaa-8929-88bc10e3f69d@e7942",
+      "displayName": "",
+      "id": "e7942",
+      "name": "斧.mesh",
+      "userData": {
+        "gltfIndex": 3,
+        "triangleCount": 232
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "11c27": {
+      "importer": "gltf-mesh",
+      "uuid": "81366fb6-0a68-4eaa-8929-88bc10e3f69d@11c27",
+      "displayName": "",
+      "id": "11c27",
+      "name": "一次升级附属.mesh",
+      "userData": {
+        "gltfIndex": 5,
+        "triangleCount": 671
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "e3f0e": {
+      "importer": "gltf-mesh",
+      "uuid": "81366fb6-0a68-4eaa-8929-88bc10e3f69d@e3f0e",
+      "displayName": "",
+      "id": "e3f0e",
+      "name": "二次升级.mesh",
+      "userData": {
+        "gltfIndex": 6,
+        "triangleCount": 2873
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "73b7f": {
+      "importer": "gltf-animation",
+      "uuid": "81366fb6-0a68-4eaa-8929-88bc10e3f69d@73b7f",
+      "displayName": "",
+      "id": "73b7f",
+      "name": "Take 001.animation",
+      "userData": {
+        "gltfIndex": 0,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 3.3333332538604736
+        },
+        "events": []
+      },
+      "ver": "1.0.17",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
+    "df7df": {
+      "importer": "gltf-embeded-image",
+      "uuid": "81366fb6-0a68-4eaa-8929-88bc10e3f69d@df7df",
+      "displayName": "",
+      "id": "df7df",
+      "name": "贴图 #1.image",
+      "userData": {
+        "gltfIndex": 0,
+        "fixAlphaTransparencyArtifacts": true,
+        "hasAlpha": true,
+        "type": "texture"
+      },
+      "ver": "1.0.3",
+      "imported": true,
+      "files": [
+        ".json",
+        ".png"
+      ],
+      "subMetas": {}
+    },
+    "a96a6": {
+      "importer": "texture",
+      "uuid": "81366fb6-0a68-4eaa-8929-88bc10e3f69d@a96a6",
+      "displayName": "",
+      "id": "a96a6",
+      "name": "贴图 #1.texture",
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "none",
+        "anisotropy": 0,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "81366fb6-0a68-4eaa-8929-88bc10e3f69d@df7df"
+      },
+      "ver": "1.0.22",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "d6962": {
+      "importer": "gltf-material",
+      "uuid": "81366fb6-0a68-4eaa-8929-88bc10e3f69d@d6962",
+      "displayName": "",
+      "id": "d6962",
+      "name": "兵营蓝色.material",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "c40d4": {
+      "importer": "gltf-material",
+      "uuid": "81366fb6-0a68-4eaa-8929-88bc10e3f69d@c40d4",
+      "displayName": "",
+      "id": "c40d4",
+      "name": "XIUGAI_兵营资产附加.material",
+      "userData": {
+        "gltfIndex": 1
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "9ca58": {
+      "importer": "gltf-material",
+      "uuid": "81366fb6-0a68-4eaa-8929-88bc10e3f69d@9ca58",
+      "displayName": "",
+      "id": "9ca58",
+      "name": "aaa_aaa_15___Default.material",
+      "userData": {
+        "gltfIndex": 2
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "68cf1": {
+      "importer": "gltf-scene",
+      "uuid": "81366fb6-0a68-4eaa-8929-88bc10e3f69d@68cf1",
+      "displayName": "",
+      "id": "68cf1",
+      "name": "XIUGAI4.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [
+      {
+        "name": "贴图 #1",
+        "uri": "81366fb6-0a68-4eaa-8929-88bc10e3f69d@df7df"
+      }
+    ],
+    "fbx": {
+      "smartMaterialEnabled": true
+    },
+    "animationImportSettings": [
+      {
+        "name": "Take 001",
+        "duration": 3.3333332538604736,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "Take 001",
+            "from": 0,
+            "to": 3.3333332538604736,
+            "wrapMode": 2,
+            "previousId": "73b7f"
+          }
+        ]
+      }
+    ],
+    "lods": {
+      "enable": false,
+      "hasBuiltinLOD": false,
+      "options": [
+        {
+          "screenRatio": 0.25,
+          "faceCount": 1
+        },
+        {
+          "screenRatio": 0.125,
+          "faceCount": 0.25
+        },
+        {
+          "screenRatio": 0.01,
+          "faceCount": 0.1
+        }
+      ]
+    },
+    "assetFinder": {
+      "meshes": [
+        "81366fb6-0a68-4eaa-8929-88bc10e3f69d@14f89",
+        "81366fb6-0a68-4eaa-8929-88bc10e3f69d@ce2eb",
+        "81366fb6-0a68-4eaa-8929-88bc10e3f69d@b2edc",
+        "81366fb6-0a68-4eaa-8929-88bc10e3f69d@e7942",
+        "81366fb6-0a68-4eaa-8929-88bc10e3f69d@84222",
+        "81366fb6-0a68-4eaa-8929-88bc10e3f69d@11c27",
+        "81366fb6-0a68-4eaa-8929-88bc10e3f69d@e3f0e"
+      ],
+      "skeletons": [],
+      "textures": [
+        "81366fb6-0a68-4eaa-8929-88bc10e3f69d@a96a6"
+      ],
+      "materials": [
+        "81366fb6-0a68-4eaa-8929-88bc10e3f69d@d6962",
+        "81366fb6-0a68-4eaa-8929-88bc10e3f69d@c40d4",
+        "81366fb6-0a68-4eaa-8929-88bc10e3f69d@9ca58"
+      ],
+      "scenes": [
+        "81366fb6-0a68-4eaa-8929-88bc10e3f69d@68cf1"
+      ]
+    },
+    "meshOptimize": {
+      "vertexCache": true,
+      "vertexFetch": true,
+      "overdraw": true,
+      "enable": true
+    },
+    "meshSimplify": {
+      "enable": true,
+      "targetRatio": 0.5
+    }
+  }
+}

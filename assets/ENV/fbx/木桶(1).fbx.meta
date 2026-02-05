@@ -1,0 +1,96 @@
+{
+  "ver": "2.3.13",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "e1d6c227-2ec4-421c-86a5-bfd3381e6d8f",
+  "files": [],
+  "subMetas": {
+    "e83c0": {
+      "importer": "gltf-mesh",
+      "uuid": "e1d6c227-2ec4-421c-86a5-bfd3381e6d8f@e83c0",
+      "displayName": "",
+      "id": "e83c0",
+      "name": "polySurface743.mesh",
+      "userData": {
+        "gltfIndex": 0,
+        "triangleCount": 344
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "aedd7": {
+      "importer": "gltf-material",
+      "uuid": "e1d6c227-2ec4-421c-86a5-bfd3381e6d8f@aedd7",
+      "displayName": "",
+      "id": "aedd7",
+      "name": "Default_Material1.material",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "10c7e": {
+      "importer": "gltf-scene",
+      "uuid": "e1d6c227-2ec4-421c-86a5-bfd3381e6d8f@10c7e",
+      "displayName": "",
+      "id": "10c7e",
+      "name": "木桶(1).prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "fbx": {
+      "smartMaterialEnabled": true
+    },
+    "lods": {
+      "enable": false,
+      "hasBuiltinLOD": false,
+      "options": [
+        {
+          "screenRatio": 0.25,
+          "faceCount": 1
+        },
+        {
+          "screenRatio": 0.125,
+          "faceCount": 0.25
+        },
+        {
+          "screenRatio": 0.01,
+          "faceCount": 0.1
+        }
+      ]
+    },
+    "assetFinder": {
+      "meshes": [
+        "e1d6c227-2ec4-421c-86a5-bfd3381e6d8f@e83c0"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [
+        "e1d6c227-2ec4-421c-86a5-bfd3381e6d8f@aedd7"
+      ],
+      "scenes": [
+        "e1d6c227-2ec4-421c-86a5-bfd3381e6d8f@10c7e"
+      ]
+    }
+  }
+}
