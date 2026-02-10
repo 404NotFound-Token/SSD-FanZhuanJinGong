@@ -34,6 +34,7 @@ export class OurActor extends Actor {
 
     private _index: number = 0;
     private _point: Node = null;
+    
 
     protected onTriggerEnter(e: ITriggerEvent): void {
         if (e.otherCollider.getGroup() === ColliderGroup.Enemy) {
@@ -46,6 +47,11 @@ export class OurActor extends Actor {
         }
     }
 
+    /**
+     * 斧子
+     * @param index 
+     * @param idlePoint 
+     */
     public initAxeActor(index: number, idlePoint?: Node) {
         // 初始化
         this._index = index;
@@ -58,7 +64,8 @@ export class OurActor extends Actor {
         this.canMove = true;
         this.isReady = false;
     }
-
+    
+//剑兵
     public initSwordActor(index: number, idlePoint?: Node) {
         // 初始化
         this._index = index;
@@ -71,7 +78,7 @@ export class OurActor extends Actor {
         this.canMove = true;
         this.isReady = false;
     }
-
+//盾
     public initShieldActor(index: number, idlePoint?: Node) {
         // 初始化
         this._index = index;
