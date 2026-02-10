@@ -21,6 +21,9 @@ import { Utils } from '../Tools/Utils';
 import { Vec2 } from 'cc';
 import { CameraCtrl } from './CameraCtrl';
 import { UIManager } from './UIManager';
+import { resources } from 'cc';
+import { Prefab } from 'cc';
+import { instantiate } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass('MainGame')
@@ -61,7 +64,7 @@ export class MainGame extends Component {
         CameraCtrl.ins._isFollow = false;
         if (this.gameCamera.projection == Camera.ProjectionType.PERSPECTIVE) {
             this.gameCamera.node.setWorldPosition(this.beforeCameraPos);
-            this.gameCamera.fov = 60;
+            this.gameCamera.fov = 65;
         }
 
         IEvent.on(EventType.GameStart, this.onGameStart, this);
@@ -76,12 +79,16 @@ export class MainGame extends Component {
             tween(this.node)
                 .parallel(
                     tween(this.gameCamera.node).to(1, { worldPosition: this.afterCameraPos }),
-                    tween(this.gameCamera).to(1, { fov: 40 })
+                    tween(this.gameCamera).to(1, { fov: 50 })
                 )
                 .call(() => {
                     CameraCtrl.ins._isFollow = true;
                     GameManager.Player.CanMove = true;
                     UIManager.ins.startTip.active = true;
+
+                    this.scheduleOnce(() => {
+                        UIManager.ins.startTip.active = false;
+                    }, 3)
                 })
                 .start();
         }, 1);
@@ -188,5 +195,15 @@ export function getUUID(): string {
     const randomPart = Math.random().toString(36).substring(2, 8);
     return `${timestamp}${randomPart}`;
 }
+
+// export function getNode(name: string, parent: Node, worldPos: Vec3 = Vec3.ZERO): Node {
+//     resources.load(`Prefab/${name}`, (err, prefab: Prefab) => {
+//         const node = instantiate(prefab);
+//         node.parent = parent;
+//         node.setWorldPosition(worldPos);
+//         return node;
+//     });
+//     return null;
+// }
 
 

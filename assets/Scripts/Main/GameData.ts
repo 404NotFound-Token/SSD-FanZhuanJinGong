@@ -29,3 +29,7 @@ export enum ColliderGroup {
     Landmark = 1 << 4,
     Check = 1 << 5,
 }
+
+export const GameData = {
+    isRun: false
+}

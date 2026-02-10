@@ -38,7 +38,7 @@ export class Joystick extends Component {
     }
 
     private onTouchStart(event: EventTouch) {
-        UIManager.ins.startTip.active = false;
+        // UIManager.ins.startTip.active = false;
         let pos = this.touchPanel.getComponent(UITransform).convertToNodeSpaceAR(new Vec3(event.getUILocation().x, event.getUILocation().y, 0));
         this.node.setPosition(pos.x, pos.y, 0);
     }

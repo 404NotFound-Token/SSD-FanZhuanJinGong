@@ -1,7 +1,7 @@
 import { _decorator, Node } from 'cc';
 import { Tower } from './Tower';
 import { GameManager } from '../../Main/GameManager';
-import { ColliderGroup, EventType, GameState, IEvent } from '../../Main/GameData';
+import { ColliderGroup, EventType, GameData, GameState, IEvent } from '../../Main/GameData';
 import { Collider } from 'cc';
 import { ITriggerEvent } from 'cc';
 import { Enum } from 'cc';
@@ -18,6 +18,11 @@ import { AudioManager } from '../../Common/AudioManager';
 import { v3 } from 'cc';
 import { OurActor, OurActorType } from '../Actor/OurActor';
 import { Effect } from '../../Tools/Effect';
+import { ParticleSystem } from 'cc';
+import { resources } from 'cc';
+import { Prefab } from 'cc';
+import { instantiate } from 'cc';
+import { Archer } from '../Actor/Archer';
 const { ccclass, property } = _decorator;
 
 export enum EnemyTowerLevel {
@@ -50,14 +55,20 @@ export class EnemyTower extends Tower {
     @property
     private attackDamage: number = 10;
 
-    @property(Node)
+    @property({ type: Node, visible: function (): boolean { return this.level !== EnemyTowerLevel.Level1 } })
     private towerHead: Node = null;
 
-    @property(Node)
-    private yanwu: Node = null;
+    // @property({ type: [Archer], visible: function (): boolean { return this.level === EnemyTowerLevel.Level1 } })
+    // private archers: Archer[] = [];
+
+    @property(ParticleSystem)
+    private yanwu: ParticleSystem = null;
 
     @property(SkeletalAnimation)
     protected anim: SkeletalAnimation = null;
+
+    @property
+    private scalemult: number = 1;
 
     private isLoaded: boolean = false;
 
@@ -67,12 +78,13 @@ export class EnemyTower extends Tower {
     protected onLoad(): void {
         IEvent.on(EventType.GameStart, this.onGameStart, this);
         GameManager.MainGame.enemyTowers.push(this);
+        GameData.isRun = false
     }
 
     private onGameStart() {
         this.initHP(this.level * 100, Color.RED);
 
-        if (this.level != EnemyTowerLevel.Level1) {
+        if (this.level == EnemyTowerLevel.Level2 || this.level == EnemyTowerLevel.Level3) {
             this.batchActors = [];
             this.batchCount = 0;
             for (let i = 0; i < this.loadNumebr; i++) {
@@ -90,13 +102,30 @@ export class EnemyTower extends Tower {
     }
 
     protected start(): void {
-        this.checkCollider.on('onTriggerEnter', this.onCheck, this);
+        // if (this.checkCollider) {
+        //     this.checkCollider.on('onTriggerEnter', this.onCheck, this);
+        // }
+
+        IEvent.once("EnemyRun", this.onCheck, this)
 
         this.schedule(() => {
-            if (GameManager.GameManager.gameState == GameState.Over) return;
+            if (GameManager.ins.gameState == GameState.Over) return;
             this.attack();
         }, this.attackInterval);
     }
+
+    // protected update(dt: number): void {
+    //     if (this.hp.now <= this.hp.max * 0.7) {
+    //         this.yanwu.capacity = 3
+    //         this.yanwu.rateOverTime.constant = 3
+    //     } else if (this.hp.now <= this.hp.max * 0.5) {
+    //         this.yanwu.capacity = 5
+    //         this.yanwu.rateOverTime.constant = 5
+    //     } else if (this.hp.now <= this.hp.max * 0.3) {
+    //         this.yanwu.capacity = 10
+    //         this.yanwu.rateOverTime.constant = 10
+    //     }
+    // }
 
     private attack() {
         if (this.bulletPoints.length <= 0) {
@@ -117,14 +146,23 @@ export class EnemyTower extends Tower {
                 }
                 AudioManager.soundPlay("电机枪")
                 const bullet = ObjectPool.GetPoolItem("RedBullet", GameManager.MainGame.bulletParent, this.bulletPoints[i].worldPosition)
+                const effect = ObjectPool.GetPoolItem("枪口电红", GameManager.MainGame.bulletParent, this.bulletPoints[i].worldPosition)
+                this.scheduleOnce(() => {
+                    effect.destroy();
+                }, 0.1)
                 bullet.lookAt(attackTar.node.worldPosition);
                 tween(bullet)
                     .to(0.2, { worldPosition: attackTar.node.worldPosition.clone() })
                     .call(() => {
+                        const effect = ObjectPool.GetPoolItem("枪口电红", GameManager.MainGame.bulletParent, attackTar.node.worldPosition)
+                        this.scheduleOnce(() => {
+                            effect.destroy();
+                        }, 0.1)
                         attackTar.beHurt(this.attackDamage);
                         ObjectPool.PutPoolItem("RedBullet", bullet);
                     })
                     .start();
+
             }, i * 0.1)
         }
     }
@@ -159,14 +197,26 @@ export class EnemyTower extends Tower {
         return minDisActor;
     }
 
-    private onCheck(e: ITriggerEvent) {
-        if (e.otherCollider.getGroup() == ColliderGroup.Our) {
+    private onCheck() {
+        // if (e.otherCollider.getGroup() == ColliderGroup.Our) {
 
-            if (this.isLoaded) return;
-            this.isLoaded = true;
-            GameManager.Player.setPlayerTarget(this.node);
+        if (this.isLoaded) return;
+        this.isLoaded = true;
+        GameManager.Player.setPlayerTarget(this.node);
 
-            if (this.level == EnemyTowerLevel.Level1) {
+        if (this.level == EnemyTowerLevel.Level1) {
+            for (let i = 0; i < this.loadNumebr; i++) {
+                this.scheduleOnce(() => {
+                    const enemyActor = ObjectPool.GetPoolItem("EnemyActor", GameManager.MainGame.actorParent, GameManager.MainGame.enemyMainCity.worldPosition);
+                    const enemyActorComp = enemyActor.getComponent(EnemyActor);
+                    // enemyActorComp.belong_owner = this.node;
+                    enemyActorComp.initEnemyActor();
+                    enemyActorComp.startMove(GameManager.MainGame.enemyPath, this.startIndex, true);
+                }, i * this.loadInterval)
+            }
+
+            GameManager.ins.schedule(() => {
+                console.log("level1加载小兵");
                 for (let i = 0; i < this.loadNumebr; i++) {
                     this.scheduleOnce(() => {
                         const enemyActor = ObjectPool.GetPoolItem("EnemyActor", GameManager.MainGame.actorParent, GameManager.MainGame.enemyMainCity.worldPosition);
@@ -176,37 +226,25 @@ export class EnemyTower extends Tower {
                         enemyActorComp.startMove(GameManager.MainGame.enemyPath, this.startIndex, true);
                     }, i * this.loadInterval)
                 }
-
-                GameManager.GameManager.schedule(() => {
-                    console.log("level1加载小兵");
-                    for (let i = 0; i < this.loadNumebr; i++) {
-                        this.scheduleOnce(() => {
-                            const enemyActor = ObjectPool.GetPoolItem("EnemyActor", GameManager.MainGame.actorParent, GameManager.MainGame.enemyMainCity.worldPosition);
-                            const enemyActorComp = enemyActor.getComponent(EnemyActor);
-                            // enemyActorComp.belong_owner = this.node;
-                            enemyActorComp.initEnemyActor();
-                            enemyActorComp.startMove(GameManager.MainGame.enemyPath, this.startIndex, true);
-                        }, i * this.loadInterval)
-                    }
-                }, 10)
-                // }, this.batchInterval)
-            }
-
-            // level2和3会直接加载小兵
-            if (this.level == EnemyTowerLevel.Level2 || this.level == EnemyTowerLevel.Level3) {
-                for (let i = 0; i < this.batchActors.length; i++) {
-                    const enemyActor = this.batchActors[i];
-                    enemyActor.scheduleOnce(() => {
-                        enemyActor.isReady = true;
-                    }, i * this.loadInterval)
-                }
-
-                this.schedule(() => {
-                    if (GameManager.GameManager.gameState == GameState.Over) return;
-                    this.loadEnemyActor();
-                }, this.batchInterval)
-            }
+            }, 10)
+            // }, this.batchInterval)
         }
+
+        // level2和3会直接加载小兵
+        if (this.level == EnemyTowerLevel.Level2 || this.level == EnemyTowerLevel.Level3) {
+            for (let i = 0; i < this.batchActors.length; i++) {
+                const enemyActor = this.batchActors[i];
+                enemyActor.scheduleOnce(() => {
+                    enemyActor.isReady = true;
+                }, i * this.loadInterval)
+            }
+
+            this.schedule(() => {
+                if (GameManager.ins.gameState == GameState.Over) return;
+                this.loadEnemyActor();
+            }, this.batchInterval)
+        }
+        // }
     }
 
 
@@ -239,8 +277,9 @@ export class EnemyTower extends Tower {
 
     beHurt(damage: number): void {
         if (this.isDie) return;
-        this.node.scale = Vec3.ONE
-        Effect.scaleInEffect1(this.node, 0.1, 1).start()
+        // Effect.scaleInEffect1(this.towerModel, 0.1, 1).start()
+        this.towerModel.scale = Vec3.ONE
+        Effect.scaleInEffect(this.towerModel, this.scalemult, 0.1, 1).start();
         super.beHurt(damage);
         if (this.hp.now <= 0) {
             this.isDie = true;
@@ -250,16 +289,18 @@ export class EnemyTower extends Tower {
             }
             AudioManager.soundPlay("受击")
             this.anim.play("Destoy")
-            this.yanwu.active = true;
+            this.yanwu.node.active = true;
             this.anim.once(SkeletalAnimation.EventType.FINISHED, (() => {
-                this.node.destroy();
+                this.scheduleOnce(() => {
+                    this.node.destroy();
+                }, 0.5)
             }), this)
         }
     }
 
 
     protected onDead(): void {
-        IEvent.emit("EnemyTowerDestoy", this.level)
+        IEvent.emit("EnemyTowerDestoy", this)
         GameManager.Player.removePlayerTarget(this.node);
 
         if (this.batchActors.length > 0) {
@@ -292,6 +333,8 @@ export class EnemyTower extends Tower {
 
         // this.node.destroy();
     }
+
+
 
 
 }

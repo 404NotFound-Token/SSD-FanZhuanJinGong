@@ -217,11 +217,12 @@ export class Effect {
     /**
      * 放大入场效果
      * @param target 目标节点
+     * @param _scale 缩放比例
      * @param duration 持续时间，默认为0.5秒
      * @param startScale 起始缩放，默认为0
      * @param overshoot 是否 overshoot，默认为true
      */
-    public static scaleInEffect(target: Node, duration: number = 0.5, startScale: number = 0, overshoot: boolean = true): Tween<Node> {
+    public static scaleInEffect(target: Node, _scale: number, duration: number = 0.5, startScale: number = 0, overshoot: boolean = true): Tween<Node> {
         const originalScale = target.scale.clone();
         const startVec = new Vec3(startScale, startScale, startScale);
 
@@ -231,9 +232,9 @@ export class Effect {
             return tween(target)
                 .to(duration, {
                     scale: new Vec3(
-                        originalScale.x * 1.2,
-                        originalScale.y * 1.2,
-                        originalScale.z * 1.2
+                        originalScale.x * _scale,
+                        originalScale.y * _scale,
+                        originalScale.z * _scale
                     )
                 }, { easing: 'backOut' })
                 .to(duration * 0.3, { scale: originalScale }, { easing: 'sineOut' });

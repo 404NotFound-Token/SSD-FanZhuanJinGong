@@ -56,14 +56,14 @@ export class UIManager extends Component {
             this.gold.scale = new Vec3(1, 1, 1).multiplyScalar(GameSceneFit.viewScale);
             this.winPanel.scale = new Vec3(1, 1, 1).multiplyScalar(GameSceneFit.viewScale);
             this.failPanel.scale = new Vec3(1, 1, 1).multiplyScalar(GameSceneFit.viewScale);
-            this.startTip.scale = new Vec3(1, 1, 1).multiplyScalar(GameSceneFit.viewScale);
+            // this.startTip.scale = new Vec3(1, 1, 1).multiplyScalar(GameSceneFit.viewScale);
         } else {
             this.joystick.scale = Vec3.ONE;
             this.logo.scale = Vec3.ONE;
             this.gold.scale = Vec3.ONE;
             this.winPanel.scale = Vec3.ONE;
             this.failPanel.scale = Vec3.ONE;
-            this.startTip.scale = Vec3.ONE;
+            // this.startTip.scale = Vec3.ONE;
         }
     }
 }

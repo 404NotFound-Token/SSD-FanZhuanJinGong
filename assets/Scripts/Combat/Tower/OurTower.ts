@@ -9,6 +9,7 @@ import { AudioManager } from '../../Common/AudioManager';
 import { GameState } from '../../Main/GameData';
 import { Effect } from '../../Tools/Effect';
 import { Tween } from 'cc';
+import { Vec3 } from 'cc';
 const { ccclass, property } = _decorator;
 
 /**
@@ -20,13 +21,17 @@ export class OurTower extends Tower {
     @property({ type: Enum(OurActorType) })
     private ourActorType: OurActorType = OurActorType.Axe;
 
+    @property
+    private modelscale: number = 1
+
     private batchCount: number = 0; // 记录每批次加载的士兵数量
     private batchActors: OurActor[] = []; // 缓存每批次加载的士兵
+
+
 
     protected onLoad(): void {
         GameManager.MainGame.ourTowers.push(this);
 
-        Zoom(this.node);
 
         AudioManager.soundPlay("升级：levup")
 
@@ -34,10 +39,12 @@ export class OurTower extends Tower {
     }
 
     protected start(): void {
+        Zoom(this.node);
+
         this.modelInitScale = this.towerModel.scale.clone();
         this.loadOurActor();
         this.schedule(() => {
-            if (GameManager.GameManager.gameState == GameState.Over) return;
+            if (GameManager.ins.gameState == GameState.Over) return;
             this.loadOurActor();
         }, this.batchInterval);
     }
@@ -76,7 +83,7 @@ export class OurTower extends Tower {
                 // Tween.stopAllByTarget(this.towerModel);
                 if (this.batchActors.length % 2 == 0) {
                     this.towerModel.scale = this.modelInitScale.clone();
-                    Effect.scaleInEffect(this.towerModel, 0.5, 1).start();
+                    Effect.scaleInEffect(this.towerModel, this.modelscale, 0.5, this.modelInitScale.x).start();
                 }
 
 
@@ -87,14 +94,14 @@ export class OurTower extends Tower {
                 this.batchActors.push(ourActorComp);
 
                 if (this.batchCount == this.loadNumebr) {
-                    this.scheduleOnce(() => {
-                        for (let i = 0; i < this.batchActors.length; i++) {
-                            const _ourActor = this.batchActors[i];
-                            _ourActor.scheduleOnce(() => {
-                                _ourActor.isReady = true;
-                            }, i * this.loadInterval)
-                        }
-                    }, this.batchInterval * 0.1)
+                    // this.scheduleOnce(() => {
+                    for (let i = 0; i < this.batchActors.length; i++) {
+                        const _ourActor = this.batchActors[i];
+                        _ourActor.scheduleOnce(() => {
+                            _ourActor.isReady = true;
+                        }, i * this.loadInterval)
+                    }
+                    // }, this.batchInterval * 0.1)
                 }
             }, i * this.loadInterval);
         }

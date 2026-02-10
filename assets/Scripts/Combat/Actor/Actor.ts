@@ -89,7 +89,7 @@ export class Actor extends CombatSystem {
 
 
     protected update(dt: number): void {
-        if (GameManager.GameManager.gameState == GameState.Over) return;
+        if (GameManager.ins.gameState == GameState.Over) return;
 
         if (!this.canMove) {
             this.rigidbody.setLinearVelocity(Vec3.ZERO);
@@ -148,7 +148,8 @@ export class Actor extends CombatSystem {
         if (this.isReady == false) return;
         if (this.path.length > 0 && this.currentPathIndex < this.path.length) {
             this.moveTarget = this.path[this.currentPathIndex].worldPosition;
-            const towers = this.team == Team.Enemy ? GameManager.MainGame.enemyTowers : GameManager.MainGame.ourTowers;
+            const allTowers = [...GameManager.MainGame.ourTowers, ...GameManager.MainGame.enemyTowers];
+            const towers = this.team == Team.Enemy ? allTowers : GameManager.MainGame.ourTowers;
             for (let i = 0; i < towers.length; i++) {
                 const tower = towers[i]
                 if (Vec3.distance(this.moveTarget, tower.node.worldPosition) < 3) {

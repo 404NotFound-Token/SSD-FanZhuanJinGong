@@ -410,6 +410,7 @@
         "_techIdx": 0,
         "_defines": [
           {
+            "USE_INSTANCING": true,
             "USE_ALBEDO_MAP": true
           },
           {},
@@ -476,8 +477,17 @@
         ],
         "_props": [
           {
+            "mainColor": {
+              "__type__": "cc.Color",
+              "r": 240,
+              "g": 240,
+              "b": 240,
+              "a": 255
+            },
+            "roughness": 0.777,
+            "specularIntensity": 0,
             "mainTexture": {
-              "__uuid__": "f3f29af8-00fb-443e-ac78-778cc90d208f@6c48a",
+              "__uuid__": "78c93e1a-f7dc-4f1a-a804-7e9ae98fe0b7@6c48a",
               "__expectedType__": "cc.Texture2D"
             }
           },
@@ -501,6 +511,7 @@
         "_techIdx": 0,
         "_defines": [
           {
+            "USE_INSTANCING": true,
             "USE_ALBEDO_MAP": true
           },
           {},

@@ -46,7 +46,7 @@ export class EnemyActor extends Actor {
     }
 
     public initEnemyActor(idlePoint?: Node) {
-        this.actorConfig = new ActorConfig(10, 10, 0, 5, 0);
+        this.actorConfig = new ActorConfig(10, 10, 0, 6, 0);
         this.isDie = false; // 初始化时确保不是死亡状态
         this.initHP(this.actorConfig.hp, Color.RED);
         GameManager.MainGame.allEnemyActors.push(this);
@@ -84,6 +84,7 @@ export class EnemyActor extends Actor {
     }
 
     private checkOurActor(): OurActor {
+        // const allTower = GameManager.MainGame.enemyTowers.
         for (let i = 0; i < GameManager.MainGame.allOurActors.length; i++) {
             const ourActor = GameManager.MainGame.allOurActors[i];
             if (ourActor.isDie) continue;

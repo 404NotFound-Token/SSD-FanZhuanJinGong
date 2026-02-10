@@ -17,6 +17,7 @@ import { PoolManager } from './PoolManager';
 import { ObjectPool } from '../Tools/ObjectPool';
 import { tween } from 'cc';
 import { EnemyMainCity } from '../Combat/MainCity/EnemyMainCity';
+import { AudioManager } from '../Common/AudioManager';
 const { ccclass, property } = _decorator;
 
 export enum PoolType {
@@ -32,7 +33,7 @@ export enum PoolType {
 @ccclass('GameManager')
 export class GameManager extends Component {
 
-    public static GameManager: GameManager = null;
+    public static ins: GameManager = null;
     public static Player: Player = null;
     public static MainGame: MainGame = null;
     public static LandmarkHandler: LandmarkHandler = null;
@@ -57,46 +58,63 @@ export class GameManager extends Component {
 
 
     protected __preload(): void {
+        // 先加载资源
         resources.loadDir("Prefab/", (err, assets) => {
-            // const assetsInfo = assets.map(asset => ({
-            //     type: asset.constructor.name,
-            //     name: asset.name,
-            //     uuid: asset.uuid
-            // }));
+            if (err) {
+                console.error(`资源加载失败：`, err);
+                return;
+            }
 
-            // if (err) {
-            //     console.log(`资源加载异常：${JSON.stringify(assetsInfo, null, 2)}`);
-            // } else {
-            //     console.log(`资源加载成功：${JSON.stringify(assetsInfo, null, 2)}`);
-            // }
+            console.log(`资源加载成功，共加载 ${assets.length} 个资源`);
+
+            // 资源加载完成后初始化游戏数据
+            this.initGameData().then(() => {
+                console.log("游戏数据初始化完成");
+                IEvent.emit(EventType.GameStart);
+            }).catch((error) => {
+                console.error("游戏初始化失败:", error);
+            });
+        });
+    }
+
+    private initGameData(): Promise<void> {
+        return new Promise((resolve, reject) => {
+            try {
+                ObjectPool.ObjectPoolInit([
+                    { path: "Gold", num: 100 },
+                    { path: "BuleBullet", num: 100 },
+                    { path: "RedBullet", num: 100 },
+                    { path: "EnemyActor", num: 100 },
+                    { path: "Axe", num: 100 },
+                    { path: "Sword", num: 100 },
+                    { path: "Shield", num: 100 },
+                    { path: "Arrow", num: 100 },
+                    { path: "枪口电红", num: 100 },
+                    { path: "枪口电蓝", num: 100 },
+                ]);
+                console.log("对象池初始化完成");
+                resolve();
+            } catch (error) {
+                console.error("对象池初始化失败:", error);
+                reject(error);
+            }
         });
     }
 
     protected onLoad(): void {
-        GameManager.GameManager = this;
+        GameManager.ins = this;
 
         IEvent.on(EventType.GameLoad, this.gameLoad, this);
         IEvent.on(EventType.GameStart, this.gameStart, this);
         IEvent.on(EventType.GamePause, this.gamePause, this);
         IEvent.once(EventType.GameOver, this.onGameOver, this);
 
-        // PhysicsSystem.instance.enable = true;
-        // PhysicsSystem.instance.debugDrawFlags = 1;
-    }
-
-    protected start(): void {
-        // GameManager.LogCurrentCollision3DMatrix();
-
-        this.initGameData().then(() => {
-            this.scheduleOnce(() => {
-                IEvent.emit(EventType.GameStart);
-            }, 1)
-        })
-
-
+        PhysicsSystem.instance.enable = true;
+        PhysicsSystem.instance.debugDrawFlags = 1;
     }
 
     private onGameOver(bol: boolean) {
+        AudioManager.musicStop();
         this.game_state = GameState.Over;
         CameraCtrl.ins._isFollow = false;
         tween(CameraCtrl.ins.node)
@@ -106,41 +124,6 @@ export class GameManager extends Component {
             })
             .start();
     }
-
-    private initGameData(): Promise<void> {
-        return new Promise((resolve) => {
-            ObjectPool.ObjectPoolInit([
-                { path: "Gold", num: 100 },
-                { path: "BuleBullet", num: 100 },
-                { path: "RedBullet", num: 100 },
-                { path: "EnemyActor", num: 100 },
-                { path: "Axe", num: 100 },
-                { path: "Sword", num: 100 },
-                { path: "Shield", num: 100 },
-                { path: "Arrow", num: 100 },
-            ]);
-
-            resolve();
-        });
-    }
-
-    // //**获取当前物理分层数据 */
-    // public static LogCurrentCollision3DMatrix() {
-    //     let str = ``;
-    //     let str2 = '';
-
-    //     const maxLength = 5;
-
-    //     for (let i = 1; i <= (1 << maxLength); i <<= 1) {
-    //         let binary = Utils.DecimalToBinaryWithPadding(PhysicsSystem.instance.collisionMatrix[i], maxLength);
-    //         str += `${i == (1 << maxLength) ? `${binary}` : `${binary}-`}`
-    //         str2 += `${binary}\n`
-    //     }
-
-    //     // console.log("3D物理碰撞矩阵存储字符串:");
-    //     // console.log(str);
-    //     console.log(`碰撞矩阵：\n` + ` ` + str2.split('').join(' '));
-    // }
 
     protected onDestroy(): void {
         IEvent.off(EventType.GameStart, this.gameStart, this);

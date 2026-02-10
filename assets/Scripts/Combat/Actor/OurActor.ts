@@ -2,11 +2,11 @@ import { _decorator, Node } from 'cc';
 import { Actor, ActorConfig, AnimationName, Team } from './Actor';
 import { ITriggerEvent } from 'cc';
 import { CombatSystem } from '../CombatSystem';
-import { ColliderGroup } from '../../Main/GameData';
+import { ColliderGroup, GameData, IEvent } from '../../Main/GameData';
 import { Vec3 } from 'cc';
 import { GameManager } from '../../Main/GameManager';
 import { Color } from 'cc';
-import { EnemyTower } from '../Tower/EnemyTower';
+import { EnemyTower, } from '../Tower/EnemyTower';
 import { _lookAtY } from '../../Tools/Tools';
 import { Enum } from 'cc';
 const { ccclass, property } = _decorator;
@@ -39,7 +39,7 @@ export class OurActor extends Actor {
         if (e.otherCollider.getGroup() === ColliderGroup.Enemy) {
             const enemy = e.otherCollider.getComponent(CombatSystem);
             if (enemy && !enemy.isDie) {
-             
+
                 enemy.beHurt(this.actorConfig.attack);
                 this.beHurt(999);
             }
@@ -52,7 +52,7 @@ export class OurActor extends Actor {
         this.idlePoint = idlePoint;
         this.team = Team.Our;
         this._type = 1;
-        this.actorConfig = new ActorConfig(10, 25, 5, 5, 0);
+        this.actorConfig = new ActorConfig(10, 25, 7, 6, 0);
         this.initHP(this.actorConfig.hp, Color.GREEN);
         GameManager.MainGame.allOurActors.push(this);
         this.canMove = true;
@@ -65,7 +65,7 @@ export class OurActor extends Actor {
         this.idlePoint = idlePoint;
         this.team = Team.Our;
         this._type = 2;
-        this.actorConfig = new ActorConfig(10, 25, 5, 5, 0);
+        this.actorConfig = new ActorConfig(10, 25, 7, 6, 0);
         this.initHP(this.actorConfig.hp, Color.GREEN);
         GameManager.MainGame.allOurActors.push(this);
         this.canMove = true;
@@ -78,7 +78,7 @@ export class OurActor extends Actor {
         this.idlePoint = idlePoint;
         this.team = Team.Our;
         this._type = 3;
-        this.actorConfig = new ActorConfig(50, 10, 5, 5, 0);
+        this.actorConfig = new ActorConfig(50, 10, 7, 6, 0);
         this.initHP(this.actorConfig.hp, Color.GREEN);
         GameManager.MainGame.allOurActors.push(this);
         this.canMove = true;
@@ -100,6 +100,10 @@ export class OurActor extends Actor {
     }
 
     protected update(dt: number): void {
+        if (this.node.worldPosition.z <= 0 && !GameData.isRun) {
+            GameData.isRun = true;
+            IEvent.emit("EnemyRun")
+        }
         if (this.isDie) {
             this.rigidbody.setLinearVelocity(Vec3.ZERO);
             return;
@@ -162,7 +166,7 @@ export class OurActor extends Actor {
 
         // 计算基础位置信息
         const centerPos = this.minDisEnemyTower.node.worldPosition; // 敌方塔作为中心点
-        const radius = this.actorConfig.range * 0.8; // 设置半径为攻击范围的80%，避免超出攻击范围
+        const radius = this.actorConfig.range * 0.5; // 设置半径为攻击范围的80%，避免超出攻击范围
         const angleStep = 30; // 每个单位间隔30度
         const maxAngle = 180; // 扇形范围为180度（从-x轴到+x轴）
 

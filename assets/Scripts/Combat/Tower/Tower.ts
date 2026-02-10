@@ -26,7 +26,7 @@ export class Tower extends CombatSystem {
     protected loadInterval: number = 0.3;
 
     @property({ displayName: "批次之间间隔", min: 3, visible: function () { return this.isCanLoadActor; } })
-    protected batchInterval: number = 5;
+    protected batchInterval: number = 4;
 
     protected path: Node[] = [];
 
@@ -54,6 +54,7 @@ export class Tower extends CombatSystem {
             this.batchInterval = 3;
         })
 
+        this.modelInitScale = this.towerModel.scale.clone();
     }
 
     // protected start(): void {

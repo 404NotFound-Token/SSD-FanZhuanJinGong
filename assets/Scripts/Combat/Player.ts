@@ -99,7 +99,7 @@ export class Player extends Component {
     protected onLoad(): void {
         GameManager.Player = this;
         this.ccc = this.node.getComponent(CapsuleCharacterController);
-        this.playerData = new PlayerConfig(7, 10, 0.2, 10);
+        this.playerData = new PlayerConfig(6, 10, 0.2, 10);
         IEvent.on(EventType.GameStart, this.onGameStart, this);
     }
 
@@ -165,7 +165,7 @@ export class Player extends Component {
     public shootBullet() {
         const attackTarget = this.getMinDistanceTarget();
         if (attackTarget) {
-            AudioManager.soundPlay("电机枪");
+            AudioManager.soundPlay("打枪");
             this.lookAtTarget(attackTarget.worldPosition);
 
             const bullet = ObjectPool.GetPoolItem("BuleBullet", this.bulletParent, this.shootPoint.worldPosition);
@@ -190,7 +190,11 @@ export class Player extends Component {
                     onComplete: () => {
                         ObjectPool.PutPoolItem("BuleBullet", bullet);
                         if (attackTarget && attackTarget.isValid) {
+                            const effect = ObjectPool.GetPoolItem("枪口电蓝", this.bulletParent, v3(attackTarget.worldPosition.x, 0.5, attackTarget.worldPosition.z))
                             attackTarget.getComponent(CombatSystem)?.beHurt(this.playerData.attack_power);
+                            this.scheduleOnce(() => {
+                                effect.destroy();
+                            }, 0.1)
                         }
                     }
                 })

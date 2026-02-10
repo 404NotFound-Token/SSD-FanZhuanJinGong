@@ -40,8 +40,11 @@ export class GameRoot extends Component {
         PlayableSDK.hideLoadingBar();
     }
 
+    
+
     protected start(): void {
         AudioManager.musicPlay('bgm', true);
+        AudioManager.volume = 0.5;
     }
 
 

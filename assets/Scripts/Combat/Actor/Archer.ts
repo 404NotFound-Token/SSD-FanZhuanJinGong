@@ -7,7 +7,7 @@ import { ObjectPool } from '../../Tools/ObjectPool';
 import { tween } from 'cc';
 import { director } from 'cc';
 import { IEvent } from '../../Main/GameData';
-import { EnemyTowerLevel } from '../Tower/EnemyTower';
+import { EnemyTower, EnemyTowerLevel } from '../Tower/EnemyTower';
 import { _lookAtY } from '../../Tools/Tools';
 import { Vec3 } from 'cc';
 import { Quat } from 'cc';
@@ -19,6 +19,9 @@ export class Archer extends Actor {
     @property(Node)
     private shootPoint: Node = null;
 
+    @property(EnemyTower)
+    private enemyTower: EnemyTower = null;
+
     private attackTarget: OurActor = null;
 
     protected onLoad(): void {
@@ -29,8 +32,8 @@ export class Archer extends Actor {
         IEvent.on("EnemyTowerDestoy", this.onEnemyTowerDestoy, this)
     }
 
-    private onEnemyTowerDestoy(level: EnemyTowerLevel) {
-        if (level == EnemyTowerLevel.Level1) {
+    private onEnemyTowerDestoy(enemyTower: EnemyTower) {
+        if (enemyTower == this.enemyTower) {
             // this.destroy();
             this.beHurt(999)
         }

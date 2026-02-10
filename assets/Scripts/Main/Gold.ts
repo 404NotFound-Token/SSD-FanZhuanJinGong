@@ -13,7 +13,7 @@ export class Gold extends Component {
 
     public canCheck = false;
 
-    private checkRange: number = 5;
+    private checkRange: number = 10;
 
     // private checkDelay: Tween<Node> = null
 
@@ -24,7 +24,7 @@ export class Gold extends Component {
     }
 
     // public check() {
-        
+
     //     this.checkDelay = tween(this.node)
     //         .delay(30)
     //         .call(() => {
@@ -44,6 +44,7 @@ export class Gold extends Component {
             const goldBag = GameManager.Player.bag;
             const isCanAddToBag = goldBag.canAddToBag;
             if (!isCanAddToBag) return;
+            if (!goldBag.isMax()) return;
             // this.checkDelay.stop();
             this.canCheck = false;
             this.animation.stop();
