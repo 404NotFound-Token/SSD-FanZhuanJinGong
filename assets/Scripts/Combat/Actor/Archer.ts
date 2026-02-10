@@ -25,7 +25,7 @@ export class Archer extends Actor {
     private attackTarget: OurActor = null;
 
     protected onLoad(): void {
-        this.actorConfig = new ActorConfig(10, 5, 10, 5, 0);
+        this.actorConfig = new ActorConfig(10, 4, 10, 5, 0);
         this.isDie = false;
         this.initHP(this.actorConfig.hp, Color.RED);
 

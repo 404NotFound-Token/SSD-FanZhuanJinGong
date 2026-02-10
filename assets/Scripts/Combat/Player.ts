@@ -76,8 +76,6 @@ export class Player extends Component {
     private cameraRight: Vec3 = new Vec3();
     private velocity: Vec3 = new Vec3();
     private currentState: PlayerState = PlayerState.Idle;
-    // private canAttack: boolean = true;
-
 
     /** 是否可以移动 */
     private canMove: boolean = false;
@@ -99,7 +97,7 @@ export class Player extends Component {
     protected onLoad(): void {
         GameManager.Player = this;
         this.ccc = this.node.getComponent(CapsuleCharacterController);
-        this.playerData = new PlayerConfig(6, 10, 0.2, 10);
+        this.playerData = new PlayerConfig(6, 5, 1, 10);
         IEvent.on(EventType.GameStart, this.onGameStart, this);
     }
 
@@ -135,10 +133,9 @@ export class Player extends Component {
             this.moveDirection.normalize();
 
             if (hasTarget) {
-                // this.canAttack = false;
-                // this.node.lookAt(hasTarget.worldPosition);
                 _lookAtY(this.node, hasTarget.worldPosition);
                 this.playAni(PlayerState.RunAttack)
+
             } else {
                 let targetAngle: number;
                 targetAngle = Math.atan2(this.moveDirection.x, this.moveDirection.z) * 180 / Math.PI - 180;
@@ -153,7 +150,7 @@ export class Player extends Component {
         }
         else {
             if (hasTarget) {
-                // this.canAttack = false;
+                _lookAtY(this.node, hasTarget.worldPosition);
                 this.playAni(PlayerState.Attack)
             } else {
                 this.playAni(PlayerState.Idle)
@@ -163,6 +160,7 @@ export class Player extends Component {
     }
 
     public shootBullet() {
+
         const attackTarget = this.getMinDistanceTarget();
         if (attackTarget) {
             AudioManager.soundPlay("打枪");
@@ -171,7 +169,6 @@ export class Player extends Component {
             const bullet = ObjectPool.GetPoolItem("BuleBullet", this.bulletParent, this.shootPoint.worldPosition);
             bullet.scale = v3(1, 1, 1);
             _lookAtY(bullet, attackTarget.worldPosition);
-            // bullet.lookAt(attackTarget.worldPosition);
 
             const subDis = new Vec3();
             Vec3.subtract(subDis, v3(attackTarget.worldPosition.x, this.shootPoint.worldPosition.y, attackTarget.worldPosition.z), this.shootPoint.worldPosition);
@@ -190,11 +187,11 @@ export class Player extends Component {
                     onComplete: () => {
                         ObjectPool.PutPoolItem("BuleBullet", bullet);
                         if (attackTarget && attackTarget.isValid) {
-                            const effect = ObjectPool.GetPoolItem("枪口电蓝", this.bulletParent, v3(attackTarget.worldPosition.x, 0.5, attackTarget.worldPosition.z))
+                            const effect = ObjectPool.GetPoolItem("蓝受击", this.bulletParent, v3(attackTarget.worldPosition.x, 0.5, attackTarget.worldPosition.z))
                             attackTarget.getComponent(CombatSystem)?.beHurt(this.playerData.attack_power);
                             this.scheduleOnce(() => {
                                 effect.destroy();
-                            }, 0.1)
+                            }, 0.2)
                         }
                     }
                 })

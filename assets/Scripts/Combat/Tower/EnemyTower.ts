@@ -40,19 +40,19 @@ export class EnemyTower extends Tower {
     @property({ type: Enum(EnemyTowerLevel) })
     private level: EnemyTowerLevel = EnemyTowerLevel.Level1;
 
-    @property(Collider)
-    protected checkCollider: Collider = null; // 检测碰撞器 检测OurActor是否进入范围
+    // @property(Collider)
+    // protected checkCollider: Collider = null; // 检测碰撞器 检测OurActor是否进入范围
 
-    @property([Node])
+    @property({ type: [Node], visible: function (): boolean { return this.level !== EnemyTowerLevel.Level1 } })
     private bulletPoints: Node[] = [];
 
-    @property
+    @property({ visible: function (): boolean { return this.level !== EnemyTowerLevel.Level1 }, displayName: "攻击范围" })
     private attackRange: number = 10;
 
-    @property
+    @property({ visible: function (): boolean { return this.level !== EnemyTowerLevel.Level1 }, displayName: "攻击间隔" })
     private attackInterval: number = 1;
 
-    @property
+    @property({ visible: function (): boolean { return this.level !== EnemyTowerLevel.Level1 }, displayName: "攻击伤害" })
     private attackDamage: number = 10;
 
     @property({ type: Node, visible: function (): boolean { return this.level !== EnemyTowerLevel.Level1 } })
@@ -70,6 +70,9 @@ export class EnemyTower extends Tower {
     @property
     private scalemult: number = 1;
 
+    @property
+    private hpnum: number = 0;
+
     private isLoaded: boolean = false;
 
     private batchCount: number = 0; // 记录每批次加载的士兵数量
@@ -82,7 +85,7 @@ export class EnemyTower extends Tower {
     }
 
     private onGameStart() {
-        this.initHP(this.level * 100, Color.RED);
+        this.initHP(this.hpnum, Color.RED);
 
         if (this.level == EnemyTowerLevel.Level2 || this.level == EnemyTowerLevel.Level3) {
             this.batchActors = [];
@@ -114,19 +117,6 @@ export class EnemyTower extends Tower {
         }, this.attackInterval);
     }
 
-    // protected update(dt: number): void {
-    //     if (this.hp.now <= this.hp.max * 0.7) {
-    //         this.yanwu.capacity = 3
-    //         this.yanwu.rateOverTime.constant = 3
-    //     } else if (this.hp.now <= this.hp.max * 0.5) {
-    //         this.yanwu.capacity = 5
-    //         this.yanwu.rateOverTime.constant = 5
-    //     } else if (this.hp.now <= this.hp.max * 0.3) {
-    //         this.yanwu.capacity = 10
-    //         this.yanwu.rateOverTime.constant = 10
-    //     }
-    // }
-
     private attack() {
         if (this.bulletPoints.length <= 0) {
             return;
@@ -134,19 +124,17 @@ export class EnemyTower extends Tower {
         if (this.level == EnemyTowerLevel.Level1) return;
         if (this.isDie) return;
 
-        for (let i = 0; i < this.bulletPoints.length; i++) {
+        const attackTars = this.getAttack(this.bulletPoints.length);
+        if (attackTars.length <= 0) return;
+
+        for (let i = 0; i < attackTars.length; i++) {
             this.scheduleOnce(() => {
-                // const attackTar = GameManager.MainGame.findMinDisOurActor(this.node, this.attackRange);
-                const attackTar = this.getAttack();
-                if (attackTar == null) return;
-                console.log(this.node.name, "攻击")
+                const attackTar = attackTars[i];
                 if (this.towerHead) {
-                    // _lookAtY(this.towerHead, attackTar.node.worldPosition)
                     this.towerHead.lookAt(v3(attackTar.node.worldPosition.x, this.towerHead.worldPosition.y, attackTar.node.worldPosition.z))
                 }
-                AudioManager.soundPlay("电机枪")
                 const bullet = ObjectPool.GetPoolItem("RedBullet", GameManager.MainGame.bulletParent, this.bulletPoints[i].worldPosition)
-                const effect = ObjectPool.GetPoolItem("枪口电红", GameManager.MainGame.bulletParent, this.bulletPoints[i].worldPosition)
+                const effect = ObjectPool.GetPoolItem("枪口火焰", GameManager.MainGame.bulletParent, this.bulletPoints[i].worldPosition)
                 this.scheduleOnce(() => {
                     effect.destroy();
                 }, 0.1)
@@ -154,7 +142,7 @@ export class EnemyTower extends Tower {
                 tween(bullet)
                     .to(0.2, { worldPosition: attackTar.node.worldPosition.clone() })
                     .call(() => {
-                        const effect = ObjectPool.GetPoolItem("枪口电红", GameManager.MainGame.bulletParent, attackTar.node.worldPosition)
+                        const effect = ObjectPool.GetPoolItem("红受击", GameManager.MainGame.bulletParent, attackTar.node.worldPosition)
                         this.scheduleOnce(() => {
                             effect.destroy();
                         }, 0.1)
@@ -162,39 +150,33 @@ export class EnemyTower extends Tower {
                         ObjectPool.PutPoolItem("RedBullet", bullet);
                     })
                     .start();
+            }, 0.1 * i)
 
-            }, i * 0.1)
         }
     }
 
-    private getAttack(): OurActor {
+    private getAttack(num: number): OurActor[] {
         const onRangeOurActor: OurActor[] = [];
 
         // 在攻击范围内的OurActor
-        let minDis = Number.MAX_VALUE;
-        let minDisActor: OurActor = null;
-
         for (let i = 0; i < GameManager.MainGame.allOurActors.length; i++) {
             const ourActor = GameManager.MainGame.allOurActors[i];
 
             const dis = Vec3.distance(ourActor.node.worldPosition, this.node.worldPosition);
             if (dis > this.attackRange) continue;
-            if (dis < minDis) {
-                minDis = dis;
-                minDisActor = ourActor;
-            }
 
             onRangeOurActor.push(ourActor);
         }
 
-        // 优先盾兵
-        for (let i = 0; i < onRangeOurActor.length; i++) {
-            const ourActor = onRangeOurActor[i];
-            if (ourActor.ourActorType == OurActorType.Shield) {
-                return ourActor;
-            }
-        }
-        return minDisActor;
+        // 按距离排序，最近的在前面
+        onRangeOurActor.sort((a, b) => {
+            const distA = Vec3.distance(a.node.worldPosition, this.node.worldPosition);
+            const distB = Vec3.distance(b.node.worldPosition, this.node.worldPosition);
+            return distA - distB;
+        });
+
+        // 返回前num个单位
+        return onRangeOurActor.slice(0, num);
     }
 
     private onCheck() {

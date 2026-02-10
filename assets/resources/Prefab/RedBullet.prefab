@@ -28,14 +28,14 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 24
+        "__id__": 25
       },
       {
-        "__id__": 26
+        "__id__": 27
       }
     ],
     "_prefab": {
-      "__id__": 28
+      "__id__": 29
     },
     "_lpos": {
       "__type__": "cc.Vec3",
@@ -75,7 +75,7 @@
       "__id__": 1
     },
     "_children": [],
-    "_active": false,
+    "_active": true,
     "_components": [
       {
         "__id__": 3
@@ -130,13 +130,13 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 36,
-      "height": 77
+      "width": 61,
+      "height": 85
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
       "x": 0.5,
-      "y": 0
+      "y": 0.5
     },
     "_id": ""
   },
@@ -170,7 +170,7 @@
       "a": 255
     },
     "_spriteFrame": {
-      "__uuid__": "43783586-22d3-4d46-9d11-74e39a989c73@f9941",
+      "__uuid__": "8640c988-a874-42d0-8276-03396b7bf37d@f9941",
       "__expectedType__": "cc.SpriteFrame"
     },
     "_type": 0,
@@ -263,6 +263,9 @@
       },
       {
         "__id__": 22
+      },
+      {
+        "__id__": 24
       }
     ],
     "removedComponents": []
@@ -418,6 +421,16 @@
     ]
   },
   {
+    "__type__": "CCPropertyOverrideInfo",
+    "targetInfo": {
+      "__id__": 12
+    },
+    "propertyPath": [
+      "_active"
+    ],
+    "value": false
+  },
+  {
     "__type__": "cc.UITransform",
     "_name": "",
     "_objFlags": 0,
@@ -427,7 +440,7 @@
     },
     "_enabled": true,
     "__prefab": {
-      "__id__": 25
+      "__id__": 26
     },
     "_contentSize": {
       "__type__": "cc.Size",
@@ -455,7 +468,7 @@
     },
     "_enabled": true,
     "__prefab": {
-      "__id__": 27
+      "__id__": 28
     },
     "_id": ""
   },
@@ -475,10 +488,10 @@
     "instance": null,
     "targetOverrides": [
       {
-        "__id__": 29
+        "__id__": 30
       },
       {
-        "__id__": 32
+        "__id__": 33
       }
     ],
     "nestedPrefabInstanceRoots": [
@@ -493,7 +506,7 @@
       "__id__": 8
     },
     "sourceInfo": {
-      "__id__": 30
+      "__id__": 31
     },
     "propertyPath": [
       "_trailModule",
@@ -503,7 +516,7 @@
       "__id__": 8
     },
     "targetInfo": {
-      "__id__": 31
+      "__id__": 32
     }
   },
   {
@@ -524,7 +537,7 @@
       "__id__": 8
     },
     "sourceInfo": {
-      "__id__": 33
+      "__id__": 34
     },
     "propertyPath": [
       "_trailModule",
@@ -534,7 +547,7 @@
       "__id__": 8
     },
     "targetInfo": {
-      "__id__": 34
+      "__id__": 35
     }
   },
   {

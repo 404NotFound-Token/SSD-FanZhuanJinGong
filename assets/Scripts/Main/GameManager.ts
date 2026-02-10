@@ -89,8 +89,12 @@ export class GameManager extends Component {
                     { path: "Sword", num: 100 },
                     { path: "Shield", num: 100 },
                     { path: "Arrow", num: 100 },
-                    { path: "枪口电红", num: 100 },
-                    { path: "枪口电蓝", num: 100 },
+                    { path: "蓝受击", num: 100 },
+                    { path: "红受击", num: 100 },
+                    { path: "TowerBullet", num: 10 },
+                    { path: "爆炸", num: 10 },
+                    { path: "枪口火焰", num: 100 },
+
                 ]);
                 console.log("对象池初始化完成");
                 resolve();

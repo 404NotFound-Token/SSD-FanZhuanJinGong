@@ -1,0 +1,88 @@
+{
+  "ver": "2.3.13",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "328d5554-83bd-48d4-a823-c3f76252a8a3",
+  "files": [],
+  "subMetas": {
+    "a0826": {
+      "importer": "gltf-mesh",
+      "uuid": "328d5554-83bd-48d4-a823-c3f76252a8a3@a0826",
+      "displayName": "",
+      "id": "a0826",
+      "name": "平面.002.mesh",
+      "userData": {
+        "gltfIndex": 0,
+        "triangleCount": 4
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "cb9ac": {
+      "importer": "gltf-scene",
+      "uuid": "328d5554-83bd-48d4-a823-c3f76252a8a3@cb9ac",
+      "displayName": "",
+      "id": "cb9ac",
+      "name": "十字面片.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "fbx": {
+      "smartMaterialEnabled": true
+    },
+    "lods": {
+      "enable": false,
+      "hasBuiltinLOD": false,
+      "options": [
+        {
+          "screenRatio": 0.25,
+          "faceCount": 1
+        },
+        {
+          "screenRatio": 0.125,
+          "faceCount": 0.25
+        },
+        {
+          "screenRatio": 0.01,
+          "faceCount": 0.1
+        }
+      ]
+    },
+    "assetFinder": {
+      "meshes": [
+        "328d5554-83bd-48d4-a823-c3f76252a8a3@a0826"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "328d5554-83bd-48d4-a823-c3f76252a8a3@cb9ac"
+      ]
+    },
+    "meshOptimize": {
+      "enable": false,
+      "vertexCache": false,
+      "vertexFetch": false,
+      "overdraw": false
+    },
+    "meshSimplify": {
+      "enable": false,
+      "targetRatio": 1
+    }
+  }
+}
