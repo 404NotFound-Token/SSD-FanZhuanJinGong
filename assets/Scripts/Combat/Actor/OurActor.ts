@@ -58,7 +58,7 @@ export class OurActor extends Actor {
         this.idlePoint = idlePoint;
         this.team = Team.Our;
         this._type = 1;
-        this.actorConfig = new ActorConfig(10, 20, 7, 6, 0);
+        this.actorConfig = new ActorConfig(20, 12, 7, 7, 0);
         this.initHP(this.actorConfig.hp, Color.GREEN);
         GameManager.MainGame.allOurActors.push(this);
         this.canMove = true;
@@ -72,7 +72,7 @@ export class OurActor extends Actor {
         this.idlePoint = idlePoint;
         this.team = Team.Our;
         this._type = 2;
-        this.actorConfig = new ActorConfig(10, 10, 7, 6, 0);
+        this.actorConfig = new ActorConfig(12, 10, 7, 7, 0);
         this.initHP(this.actorConfig.hp, Color.GREEN);
         GameManager.MainGame.allOurActors.push(this);
         this.canMove = true;
@@ -85,7 +85,7 @@ export class OurActor extends Actor {
         this.idlePoint = idlePoint;
         this.team = Team.Our;
         this._type = 3;
-        this.actorConfig = new ActorConfig(5, 300, 7, 6, 0);
+        this.actorConfig = new ActorConfig(800, 10, 7, 6, 0);
         this.initHP(this.actorConfig.hp, Color.GREEN);
         GameManager.MainGame.allOurActors.push(this);
         this.canMove = true;

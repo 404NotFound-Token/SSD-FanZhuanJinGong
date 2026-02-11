@@ -48637,8 +48637,8 @@
     "isCanLoadActor": true,
     "startIndex": 3,
     "loadNumebr": 6,
-    "loadInterval": 0.4,
-    "batchInterval": 7,
+    "loadInterval": 0.3,
+    "batchInterval": 3,
     "idelPoints": [
       {
         "__id__": 2981
@@ -50390,7 +50390,7 @@
     "startIndex": 5,
     "loadNumebr": 6,
     "loadInterval": 0.5,
-    "batchInterval": 8,
+    "batchInterval": 6,
     "idelPoints": [
       {
         "__id__": 3042
@@ -62427,7 +62427,7 @@
     "yanwu": null,
     "anim": null,
     "scalemult": 0.9,
-    "hpnum": 180,
+    "hpnum": 300,
     "_id": "4cPiL4N2tAzJqlTPDE9YFq"
   },
   {
@@ -66430,7 +66430,7 @@
     "startIndex": 6,
     "loadNumebr": 6,
     "loadInterval": 0.5,
-    "batchInterval": 7,
+    "batchInterval": 8,
     "idelPoints": [
       {
         "__id__": 3832
@@ -66472,7 +66472,7 @@
       "__id__": 3819
     },
     "scalemult": 0.9,
-    "hpnum": 270,
+    "hpnum": 800,
     "_id": "85jd6QAtxOLYYouscpCPrj"
   },
   {
@@ -70131,8 +70131,8 @@
     "isCanLoadActor": true,
     "startIndex": 4,
     "loadNumebr": 6,
-    "loadInterval": 0.7,
-    "batchInterval": 10,
+    "loadInterval": 0.5,
+    "batchInterval": 5,
     "idelPoints": [
       {
         "__id__": 4004
@@ -70180,7 +70180,7 @@
       "__id__": 3991
     },
     "scalemult": 0.9,
-    "hpnum": 500,
+    "hpnum": 1000,
     "_id": "1ezQsz3UNFypPr6Nb3P7DF"
   },
   {
@@ -71007,7 +71007,7 @@
     "yanwu": null,
     "anim": null,
     "scalemult": 0.9,
-    "hpnum": 2000,
+    "hpnum": 1500,
     "_id": "baxfufxLJOObMlDfcyGCgv"
   },
   {
@@ -72744,7 +72744,7 @@
     "yanwu": null,
     "anim": null,
     "scalemult": 0.9,
-    "hpnum": 2000,
+    "hpnum": 1500,
     "_id": "edlc/BDqNDJbz8Aa+b+4Xa"
   },
   {

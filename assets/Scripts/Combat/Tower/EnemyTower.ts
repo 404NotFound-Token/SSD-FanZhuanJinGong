@@ -208,7 +208,7 @@ export class EnemyTower extends Tower {
                         enemyActorComp.startMove(GameManager.MainGame.enemyPath, this.startIndex, true);
                     }, i * 0.5)
                 }
-            }, 12)
+            }, 6)
             // }, this.batchInterval)
         }
 

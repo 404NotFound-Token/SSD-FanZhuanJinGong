@@ -97,7 +97,7 @@ export class Player extends Component {
     protected onLoad(): void {
         GameManager.Player = this;
         this.ccc = this.node.getComponent(CapsuleCharacterController);
-        this.playerData = new PlayerConfig(6, 5, 1, 10);
+        this.playerData = new PlayerConfig(6, 10, 1, 10);
         IEvent.on(EventType.GameStart, this.onGameStart, this);
     }
 
