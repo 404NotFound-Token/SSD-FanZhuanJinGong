@@ -119,6 +119,7 @@ export class GameManager extends Component {
 
     private onGameOver(bol: boolean) {
         AudioManager.musicStop();
+        AudioManager.soundEnable = false;
         this.game_state = GameState.Over;
         CameraCtrl.ins._isFollow = false;
         tween(CameraCtrl.ins.node)
