@@ -14,6 +14,8 @@ import { ObjectPool } from '../../Tools/ObjectPool';
 import { ITriggerEvent } from 'cc';
 import { ColliderGroup } from '../../Main/GameData';
 import { OurActor } from './OurActor';
+import { v3 } from 'cc';
+import { math } from 'cc';
 const { ccclass, property } = _decorator;
 
 /**
@@ -69,8 +71,8 @@ export class EnemyActor extends Actor {
         }
 
         const ourActor = this.checkOurActor();
-        if(ourActor){
-            
+        if (ourActor) {
+
         }
         super.update(dt);
     }
@@ -78,6 +80,8 @@ export class EnemyActor extends Actor {
     beHurt(damage: number): void {
         super.beHurt(damage);
         if (this.isDie) {
+            GameManager.MainGame._dropGold(this.node.worldPosition.clone());
+
             this.onDead(); // 确保死亡动画播放
             this.playAni(AnimationName.死亡);
         }
@@ -104,43 +108,15 @@ export class EnemyActor extends Actor {
         this.isDie = true; // 确保死亡状态被设置
         director.emit("EnemyActorDead", this);
         GameManager.MainGame.dropGold(1, this.node);
-        // this.dropGold();
+
         GameManager.Player.removePlayerTarget(this.node);
         const index = GameManager.MainGame.allEnemyActors.indexOf(this);
         if (index != -1) {
             GameManager.MainGame.allEnemyActors.splice(index, 1);
         }
-        // this.recycleActor();
     }
 
-    // public recycleActor(): void {
-    //     GameManager.Player.removePlayerTarget(this.node);
-    //     GameManager.MainGame.removeActor(this);
-    //     // ObjectPool.PutPoolItem("EnemyActor", this.node);
-    // }
 
-    public dropGold() {
-        const gold = ObjectPool.GetPoolItem("Gold", director.getScene(), this.node.worldPosition);
-        const goldComp = gold.getComponent(Gold);
-        const startPos = gold.worldPosition;
-        const endPos = MathUtils.randomPointInRing3D(this.node.worldPosition, 1, 2);
-        const ctrlPos = new Vec3(endPos.x, endPos.y + 5, endPos.z);
-        goldComp.animation.play()
-        tween(gold)
-            .bezierTo3D(0.5, startPos, ctrlPos, endPos)
-            .call(() => {
-                Utils.jellyEffect(
-                    gold,
-                    1,
-                    (() => {
-                        goldComp.canCheck = true;
-                        // goldComp.check();
-                    }),
-                    null
-                )
-            })
-            .start();
-    }
 }
 
 

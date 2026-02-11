@@ -94,26 +94,6 @@ export class MainGame extends Component {
         }, 1);
     }
 
-    // public addActor(actor: OurActor | EnemyActor) {
-    //     if (actor instanceof OurActor) {
-    //         this.allOurActors.push(actor);
-    //         console.log("addActor allOurActors", this.allOurActors.length);
-    //     } else if (actor instanceof EnemyActor) {
-    //         this.allEnemyActors.push(actor);
-    //         console.log("addActor allEnemyActors", this.allEnemyActors.length);
-    //     }
-    // }
-
-    // public removeActor(actor: OurActor | EnemyActor) {
-    //     if (actor instanceof OurActor) {
-    //         this.allOurActors.splice(this.allOurActors.indexOf(actor), 1);
-    //         console.log("removeActor allOurActors", this.allOurActors.length);
-    //     } else if (actor instanceof EnemyActor) {
-    //         this.allEnemyActors.splice(this.allEnemyActors.indexOf(actor), 1);
-    //         console.log("removeActor allEnemyActors", this.allEnemyActors.length);
-    //     }
-    // }
-
     /**
      * 
      * @param bol true 我方 false 敌方
@@ -187,6 +167,29 @@ export class MainGame extends Component {
                 })
                 .start();
         }
+    }
+
+    public _dropGold(pos: Vec3) {
+        const gold = ObjectPool.GetPoolItem("Gold", director.getScene(), pos);
+        const goldComp = gold.getComponent(Gold);
+        const startPos = pos;
+        const endPos = MathUtils.randomPointInRing3D(pos, 1, 2);
+        const ctrlPos = new Vec3(endPos.x, endPos.y + 5, endPos.z);
+        goldComp.animation.play()
+        tween(gold)
+            .bezierTo3D(0.5, startPos, ctrlPos, endPos)
+            .call(() => {
+                Utils.jellyEffect(
+                    gold,
+                    1,
+                    (() => {
+                        goldComp.canCheck = true;
+                        // goldComp.check();
+                    }),
+                    null
+                )
+            })
+            .start();
     }
 }
 

@@ -1,9 +1,7 @@
 import { _decorator, Node } from 'cc';
 import { Tower } from './Tower';
 import { GameManager } from '../../Main/GameManager';
-import { ColliderGroup, EventType, GameData, GameState, IEvent } from '../../Main/GameData';
-import { Collider } from 'cc';
-import { ITriggerEvent } from 'cc';
+import { EventType, GameData, GameState, IEvent } from '../../Main/GameData';
 import { Enum } from 'cc';
 import { ObjectPool } from '../../Tools/ObjectPool';
 import { EnemyActor } from '../Actor/EnemyActor';
@@ -12,17 +10,12 @@ import { tween } from 'cc';
 import { Color } from 'cc';
 import { find } from 'cc';
 import { SkeletalAnimation } from 'cc';
-import { director } from 'cc';
 import { _lookAtY } from '../../Tools/Tools';
 import { AudioManager } from '../../Common/AudioManager';
 import { v3 } from 'cc';
-import { OurActor, OurActorType } from '../Actor/OurActor';
+import { OurActor } from '../Actor/OurActor';
 import { Effect } from '../../Tools/Effect';
 import { ParticleSystem } from 'cc';
-import { resources } from 'cc';
-import { Prefab } from 'cc';
-import { instantiate } from 'cc';
-import { Archer } from '../Actor/Archer';
 const { ccclass, property } = _decorator;
 
 export enum EnemyTowerLevel {
@@ -40,9 +33,6 @@ export class EnemyTower extends Tower {
     @property({ type: Enum(EnemyTowerLevel) })
     private level: EnemyTowerLevel = EnemyTowerLevel.Level1;
 
-    // @property(Collider)
-    // protected checkCollider: Collider = null; // 检测碰撞器 检测OurActor是否进入范围
-
     @property({ type: [Node], visible: function (): boolean { return this.level !== EnemyTowerLevel.Level1 } })
     private bulletPoints: Node[] = [];
 
@@ -57,9 +47,6 @@ export class EnemyTower extends Tower {
 
     @property({ type: Node, visible: function (): boolean { return this.level !== EnemyTowerLevel.Level1 } })
     private towerHead: Node = null;
-
-    // @property({ type: [Archer], visible: function (): boolean { return this.level === EnemyTowerLevel.Level1 } })
-    // private archers: Archer[] = [];
 
     @property(ParticleSystem)
     private yanwu: ParticleSystem = null;
@@ -180,30 +167,31 @@ export class EnemyTower extends Tower {
     }
 
     private onCheck() {
-        // if (e.otherCollider.getGroup() == ColliderGroup.Our) {
 
         if (this.isLoaded) return;
         this.isLoaded = true;
         GameManager.Player.setPlayerTarget(this.node);
 
+        // 主基地刷兵----------
         if (this.level == EnemyTowerLevel.Level1) {
+
+            // 初始立即加载一波
             for (let i = 0; i < this.loadNumebr; i++) {
                 this.scheduleOnce(() => {
                     const enemyActor = ObjectPool.GetPoolItem("EnemyActor", GameManager.MainGame.actorParent, GameManager.MainGame.enemyMainCity.worldPosition);
                     const enemyActorComp = enemyActor.getComponent(EnemyActor);
-                    // enemyActorComp.belong_owner = this.node;
                     enemyActorComp.initEnemyActor();
                     enemyActorComp.startMove(GameManager.MainGame.enemyPath, this.startIndex, true);
                 }, i * 0.5)
             }
 
+
+            // 定时加载
             GameManager.ins.schedule(() => {
-                console.log("level1加载小兵");
                 for (let i = 0; i < this.loadNumebr; i++) {
                     this.scheduleOnce(() => {
                         const enemyActor = ObjectPool.GetPoolItem("EnemyActor", GameManager.MainGame.actorParent, GameManager.MainGame.enemyMainCity.worldPosition);
                         const enemyActorComp = enemyActor.getComponent(EnemyActor);
-                        // enemyActorComp.belong_owner = this.node;
                         enemyActorComp.initEnemyActor();
                         enemyActorComp.startMove(GameManager.MainGame.enemyPath, this.startIndex, true);
                     }, i * 0.5)
@@ -226,7 +214,6 @@ export class EnemyTower extends Tower {
                 this.loadEnemyActor();
             }, this.batchInterval)
         }
-        // }
     }
 
 
@@ -289,9 +276,6 @@ export class EnemyTower extends Tower {
             for (let i = 0; i < this.batchActors.length; i++) {
                 const _enemyActor = this.batchActors[i];
                 _enemyActor.isReady = true;
-                // _enemyActor.scheduleOnce(() => {
-
-                // }, i * this.loadInterval)
             }
         }
 
