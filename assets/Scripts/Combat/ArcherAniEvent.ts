@@ -13,7 +13,6 @@ export class ArcherAniEvent extends Component {
     private archer: Archer = null;
 
     private Attack() {
-        // console.log("ArcherAttack")
         AudioManager.soundPlay("射箭")
         this.archer.onAttack();
     }

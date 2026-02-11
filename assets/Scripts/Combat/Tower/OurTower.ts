@@ -51,11 +51,9 @@ export class OurTower extends Tower {
 
     private loadOurActor(): void {
         if (!GameManager.MainGame.actorParent) {
-            console.log(`%c 士兵父节点为空，请检查 `, 'color:  #ff0000ff');
             return;
         }
 
-        console.log(`%c 兵营：${this.node.name} 加载士兵 `, 'color:  #ea00ffff');
         this.batchActors = [];
         this.batchCount = 0;
 

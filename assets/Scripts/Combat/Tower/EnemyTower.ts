@@ -198,7 +198,6 @@ export class EnemyTower extends Tower {
             }
 
             GameManager.ins.schedule(() => {
-                console.log("level1加载小兵");
                 for (let i = 0; i < this.loadNumebr; i++) {
                     this.scheduleOnce(() => {
                         const enemyActor = ObjectPool.GetPoolItem("EnemyActor", GameManager.MainGame.actorParent, GameManager.MainGame.enemyMainCity.worldPosition);

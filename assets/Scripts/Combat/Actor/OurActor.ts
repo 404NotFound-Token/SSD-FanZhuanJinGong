@@ -47,13 +47,8 @@ export class OurActor extends Actor {
         }
     }
 
-    /**
-     * 斧子
-     * @param index 
-     * @param idlePoint 
-     */
+    // 斧兵
     public initAxeActor(index: number, idlePoint?: Node) {
-        // 初始化
         this._index = index;
         this.idlePoint = idlePoint;
         this.team = Team.Our;
@@ -63,11 +58,12 @@ export class OurActor extends Actor {
         GameManager.MainGame.allOurActors.push(this);
         this.canMove = true;
         this.isReady = false;
+
+        console.log("初始化斧兵: ", this.actorConfig);
     }
-    
-//剑兵
+
+    // 剑兵
     public initSwordActor(index: number, idlePoint?: Node) {
-        // 初始化
         this._index = index;
         this.idlePoint = idlePoint;
         this.team = Team.Our;
@@ -77,10 +73,11 @@ export class OurActor extends Actor {
         GameManager.MainGame.allOurActors.push(this);
         this.canMove = true;
         this.isReady = false;
+
+        console.log("初始化剑兵: ", this.actorConfig);
     }
-//盾
+    // 盾兵
     public initShieldActor(index: number, idlePoint?: Node) {
-        // 初始化
         this._index = index;
         this.idlePoint = idlePoint;
         this.team = Team.Our;
@@ -90,6 +87,8 @@ export class OurActor extends Actor {
         GameManager.MainGame.allOurActors.push(this);
         this.canMove = true;
         this.isReady = false;
+
+        console.log("初始化盾兵: ", this.actorConfig);
     }
 
     public startMove(path: Node[], startIndex: number) {
