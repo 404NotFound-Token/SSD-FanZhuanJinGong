@@ -82,7 +82,7 @@ export class OurActor extends Actor {
         this.idlePoint = idlePoint;
         this.team = Team.Our;
         this._type = 3;
-        this.actorConfig = new ActorConfig(200, 10, 7, 6, 0);
+        this.actorConfig = new ActorConfig(100, 10, 7, 6, 0);
         this.initHP(this.actorConfig.hp, Color.GREEN);
         GameManager.MainGame.allOurActors.push(this);
         this.canMove = true;
