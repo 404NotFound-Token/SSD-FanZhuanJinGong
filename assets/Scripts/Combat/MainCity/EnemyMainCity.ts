@@ -2,15 +2,12 @@ import { _decorator } from 'cc';
 import { MainCity } from './MainCity';
 import { EventType, GameState, IEvent } from '../../Main/GameData';
 import { Color } from 'cc';
-import { CameraCtrl, cameraToTarget_offset } from '../../Main/CameraCtrl';
 import { GameManager } from '../../Main/GameManager';
-import { tween } from 'cc';
 import { find } from 'cc';
 import { Effect } from '../../Tools/Effect';
 import { Vec3 } from 'cc';
 import { Node } from 'cc';
 import { ObjectPool } from '../../Tools/ObjectPool';
-import { MainGame } from '../../Main/MainGame';
 import { SkeletalAnimation } from 'cc';
 import { OurActor } from '../Actor/OurActor';
 import { v3 } from 'cc';
@@ -20,7 +17,6 @@ const { ccclass, property } = _decorator;
 @ccclass('EnemyMainCity')
 export class EnemyMainCity extends MainCity {
 
-
     public static ins: EnemyMainCity = null
 
     @property(Node)
@@ -28,9 +24,6 @@ export class EnemyMainCity extends MainCity {
 
     @property(Node)
     private shootPoint: Node = null;
-
-    // @property({ displayName: "攻击数量" })
-    // private attackNumber: number = 3;
 
     @property({ displayName: "攻击间隔" })
     private attackInterval: number = 3;

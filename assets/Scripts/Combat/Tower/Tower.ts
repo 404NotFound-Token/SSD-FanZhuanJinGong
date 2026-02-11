@@ -56,32 +56,6 @@ export class Tower extends CombatSystem {
 
         this.modelInitScale = this.towerModel.scale.clone();
     }
-
-    // protected start(): void {
-    //     this.modelInitScale = this.towerModel.scale.clone()
-    // }
-
-    // protected towerZoom(scale: number = 1.2, time: number = 0.2) {
-    //     // 添加安全检查
-    //     if (!this.towerModel || !this.modelInitScale) {
-    //         console.warn(`towerZoom called but towerModel or modelInitScale is null`, this.node.name);
-    //         return;
-    //     }
-
-    //     // 停止所有正在进行的动画
-    //     Tween.stopAllByTarget(this.towerModel);
-    //     this.towerModel.scale = this.modelInitScale.clone();
-
-    //     // 创建新的缩放动画
-    //     tween(this.towerModel)
-    //         .to(time, { scale: this.modelInitScale.multiplyScalar(scale) })
-    //         .to(time, { scale: this.modelInitScale })
-    //         .call(() => {
-    //             // 动画完成后确保缩放值正确
-    //             this.towerModel.scale = this.modelInitScale.clone();
-    //         })
-    //         .start()
-    // }
 }
 
 
