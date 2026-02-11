@@ -15,7 +15,7 @@ export class Gold extends Component {
 
     private checkRange: number = 10;
 
-    // private checkDelay: Tween<Node> = null
+    private checkDelay: Tween<Node> = null
 
     public animation: Animation = null
 
@@ -23,16 +23,15 @@ export class Gold extends Component {
         this.animation = this.getComponent(Animation);
     }
 
-    // public check() {
-
-    //     this.checkDelay = tween(this.node)
-    //         .delay(30)
-    //         .call(() => {
-    //             // ObjectPool.PutPoolItem("Gold", this.node);
-    //             this.node.destroy();
-    //         })
-    //         .start();
-    // }
+    public check() {
+        this.checkDelay = tween(this.node)
+            .delay(10)
+            .call(() => {
+                // ObjectPool.PutPoolItem("Gold", this.node);
+                this.node.destroy();
+            })
+            .start();
+    }
 
     protected update(dt: number): void {
         if (this.canCheck == false) {
@@ -45,12 +44,11 @@ export class Gold extends Component {
             const isCanAddToBag = goldBag.canAddToBag;
             if (!isCanAddToBag) return;
             if (!goldBag.isMax()) return;
-            // this.checkDelay.stop();
+            this.checkDelay.stop();
             this.canCheck = false;
             this.animation.stop();
             this.node.getChildByName("金币").setRotationFromEuler(0, 0, 0)
             this.node.getChildByName("金币").setPosition(0, 0, 0)
-
 
             goldBag.add(this
                 ,

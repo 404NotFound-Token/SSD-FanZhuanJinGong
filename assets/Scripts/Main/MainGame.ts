@@ -160,6 +160,7 @@ export class MainGame extends Component {
                         1,
                         (() => {
                             goldComp.canCheck = true;
+                            goldComp.check()
                             // goldComp.check();
                         }),
                         null
@@ -184,7 +185,7 @@ export class MainGame extends Component {
                     1,
                     (() => {
                         goldComp.canCheck = true;
-                        // goldComp.check();
+                       goldComp.check()
                     }),
                     null
                 )

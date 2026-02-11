@@ -17,6 +17,7 @@ const { ccclass, property } = _decorator;
 @ccclass('EnemyMainCity')
 export class EnemyMainCity extends MainCity {
 
+
     public static ins: EnemyMainCity = null
 
     @property(Node)
@@ -24,6 +25,9 @@ export class EnemyMainCity extends MainCity {
 
     @property(Node)
     private shootPoint: Node = null;
+
+    // @property({ displayName: "攻击数量" })
+    // private attackNumber: number = 3;
 
     @property({ displayName: "攻击间隔" })
     private attackInterval: number = 3;
@@ -76,8 +80,6 @@ export class EnemyMainCity extends MainCity {
         this.attack()
     }
 
-    damageDecayRate: number = 0.8;
-
     private attack() {
         this.scheduleOnce(() => {
             this.attacking = false
@@ -90,8 +92,11 @@ export class EnemyMainCity extends MainCity {
         if (!bullet) return;
 
         bullet.getComponent(TowerBullet).init(attackTarget.node)
+        // bullet.lookAt(attackTarget.node.worldPosition)
         const targetWorldPos = attackTarget.node.worldPosition.clone()
-        // attackTarget.beHurt(this.attackPower)
+
+        attackTarget.beHurt(this.attackPower)
+
         const effect = ObjectPool.GetPoolItem("爆炸", GameManager.MainGame.bulletParent, targetWorldPos);
         this.scheduleOnce(() => { effect.destroy() }, 0.5)
 
@@ -99,11 +104,18 @@ export class EnemyMainCity extends MainCity {
         if (ourActors.length <= 0) return;
         for (let i = 0; i < ourActors.length; i++) {
             const ourActor = ourActors[i];
-            const hitNum = this.attackPower * Math.pow(this.damageDecayRate, i);
-            if (hitNum <= 0) continue;
-            ourActor.beHurt(hitNum);
-            console.error("敌方主城攻击,伤害：", hitNum, " ourActor:", ourActor)
+            const hitNum = this.attackPower * (10 - i)
+            console.log("111111111 : ", hitNum)
+            ourActor.beHurt(hitNum)
         }
+        // tween(bullet)
+        //     .to(0.3, { worldPosition: targetWorldPos })
+        //     .call(() => {
+
+
+
+        //     })
+        //     .start()
     }
 
     private getOnRangeOurActors(worldPos: Vec3): OurActor[] {

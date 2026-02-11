@@ -3,19 +3,10 @@ import { Actor, ActorConfig, AnimationName, Team } from './Actor';
 // import { ObjectPool } from '../../Tools/ObjectPool';
 import { GameManager } from '../../Main/GameManager';
 import { director } from 'cc';
-import { Gold } from '../../Main/Gold';
-import { MathUtils } from '../../Tools/MathUtils';
 import { Vec3 } from 'cc';
-import { tween } from 'cc';
 import { Color } from 'cc';
-import { Utils } from '../../Tools/Utils';
 import { Node } from 'cc';
-import { ObjectPool } from '../../Tools/ObjectPool';
-import { ITriggerEvent } from 'cc';
-import { ColliderGroup } from '../../Main/GameData';
 import { OurActor } from './OurActor';
-import { v3 } from 'cc';
-import { math } from 'cc';
 const { ccclass, property } = _decorator;
 
 /**
