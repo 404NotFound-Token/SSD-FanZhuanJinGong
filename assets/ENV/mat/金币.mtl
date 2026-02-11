@@ -103,11 +103,11 @@
       "metallic": 0.296,
       "specularIntensity": 0.154,
       "mainTexture": {
-        "__uuid__": "69378e43-bd1b-484b-92ee-a8da54361a71@6c48a",
+        "__uuid__": "9f66aca4-4837-476b-a8fe-0bf96883edd0@6c48a",
         "__expectedType__": "cc.Texture2D"
       },
       "emissiveMap": {
-        "__uuid__": "69378e43-bd1b-484b-92ee-a8da54361a71@6c48a",
+        "__uuid__": "9f66aca4-4837-476b-a8fe-0bf96883edd0@6c48a",
         "__expectedType__": "cc.Texture2D"
       }
     },
