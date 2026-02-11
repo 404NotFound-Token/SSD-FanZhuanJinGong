@@ -176,8 +176,9 @@ export class Player extends Component {
             const distance = subDis.length();
             const duration = distance / this.bulletSpeed;
 
-            this.shootEffect.active = false;
+      this.shootEffect.active = false;
             this.shootEffect.active = true;
+      
 
             tween(bullet)
                 .by(duration, {

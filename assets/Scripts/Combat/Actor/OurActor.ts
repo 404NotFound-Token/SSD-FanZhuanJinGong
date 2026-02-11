@@ -34,7 +34,7 @@ export class OurActor extends Actor {
 
     private _index: number = 0;
     private _point: Node = null;
-    
+
 
     protected onTriggerEnter(e: ITriggerEvent): void {
         if (e.otherCollider.getGroup() === ColliderGroup.Enemy) {
@@ -58,7 +58,7 @@ export class OurActor extends Actor {
         this.idlePoint = idlePoint;
         this.team = Team.Our;
         this._type = 1;
-        this.actorConfig = new ActorConfig(20, 3, 7, 6, 0);
+        this.actorConfig = new ActorConfig(10, 20, 7, 6, 0);
         this.initHP(this.actorConfig.hp, Color.GREEN);
         GameManager.MainGame.allOurActors.push(this);
         this.canMove = true;
@@ -72,7 +72,7 @@ export class OurActor extends Actor {
         this.idlePoint = idlePoint;
         this.team = Team.Our;
         this._type = 2;
-        this.actorConfig = new ActorConfig(12, 2, 7, 6, 0);
+        this.actorConfig = new ActorConfig(10, 10, 7, 6, 0);
         this.initHP(this.actorConfig.hp, Color.GREEN);
         GameManager.MainGame.allOurActors.push(this);
         this.canMove = true;
@@ -85,7 +85,7 @@ export class OurActor extends Actor {
         this.idlePoint = idlePoint;
         this.team = Team.Our;
         this._type = 3;
-        this.actorConfig = new ActorConfig(30, 3, 7, 6, 0);
+        this.actorConfig = new ActorConfig(5, 300, 7, 6, 0);
         this.initHP(this.actorConfig.hp, Color.GREEN);
         GameManager.MainGame.allOurActors.push(this);
         this.canMove = true;

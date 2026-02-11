@@ -29,8 +29,8 @@ export class EnemyMainCity extends MainCity {
     @property(Node)
     private shootPoint: Node = null;
 
-    @property({ displayName: "攻击数量" })
-    private attackNumber: number = 3;
+    // @property({ displayName: "攻击数量" })
+    // private attackNumber: number = 3;
 
     @property({ displayName: "攻击间隔" })
     private attackInterval: number = 3;
@@ -108,6 +108,7 @@ export class EnemyMainCity extends MainCity {
         for (let i = 0; i < ourActors.length; i++) {
             const ourActor = ourActors[i];
             const hitNum = this.attackPower * (10 - i)
+            console.log("111111111 : ", hitNum)
             if (hitNum <= 0) continue;
             ourActor.beHurt(hitNum)
         }

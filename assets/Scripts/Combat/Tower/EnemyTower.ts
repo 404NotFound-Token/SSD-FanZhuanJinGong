@@ -194,7 +194,7 @@ export class EnemyTower extends Tower {
                     // enemyActorComp.belong_owner = this.node;
                     enemyActorComp.initEnemyActor();
                     enemyActorComp.startMove(GameManager.MainGame.enemyPath, this.startIndex, true);
-                }, i * this.loadInterval)
+                }, i * 0.5)
             }
 
             GameManager.ins.schedule(() => {
@@ -206,9 +206,9 @@ export class EnemyTower extends Tower {
                         // enemyActorComp.belong_owner = this.node;
                         enemyActorComp.initEnemyActor();
                         enemyActorComp.startMove(GameManager.MainGame.enemyPath, this.startIndex, true);
-                    }, i * this.loadInterval)
+                    }, i * 0.5)
                 }
-            }, 10)
+            }, 12)
             // }, this.batchInterval)
         }
 
